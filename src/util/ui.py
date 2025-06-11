@@ -1,15 +1,6 @@
 from src import *
 from src.util.files import files
-# «
-# » 
-# ➤
-# ◜ ◝
-# ◞ ◟
-# ❘
-# ╭ ╮
-# ╰ ╯
-# │
-# ─
+
 class ui:
     def title(title: str):
         os.system(f'title {title}')
@@ -73,23 +64,16 @@ class ui:
 
         print(menu)
 
-    def input(text: str, module: str=None, yesno: bool=False) -> str:
-        if module == None:
-            module = ''
-        else:
-            module = f'{co.main}[{co.reset}{module}{co.main}] '
+    def input(text: str, module: str = None, yesno: bool = False):
+        module_str = f'{co.main}[{co.reset}{module}{co.main}] ' if module else ''
+        prompt = f'{module_str}{co.main}[{co.reset}{text}{co.main}]'
         if yesno:
-            result = input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}({co.reset}y/n{co.main}) {co.reset}')
-            if result in ['y', 'Y', 'yes', 'Yes', 'YES']:
-                return True
-            else:
-                return False
-        return input(f'{module}{co.main}[{co.reset}{text}{co.main}] {co.main}» {co.reset}')
-    
+            result = input(f'{prompt} {co.main}({co.reset}y/n{co.main}) {co.reset}')
+            return result.lower() in ('y', 'yes')
+        return input(f'{prompt} {co.main}» {co.reset}')
+
     def createmenu(options: list):
-        toprint = []
-        for i, option in enumerate(options, 1):
-            number = str(i).zfill(2)
-            toprint.append(f'{co.main}[{co.reset}{number}{co.main}] » {co.main}[{co.reset}{option}{co.main}]')
-        
-        print('\n'.join(toprint))
+        print('\n'.join(
+            f'{co.main}[{co.reset}{str(i+1).zfill(2)}{co.main}] » {co.main}[{co.reset}{option}{co.main}]'
+            for i, option in enumerate(options)
+        ))

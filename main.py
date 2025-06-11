@@ -2,10 +2,10 @@ import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTEC
 from src import *
 
 from src.util.ui import ui
-from src.util.logger import logger
+from src.util.logger import Logger
 from src.util.other import other
 
-logger = logger(module='Main')
+logger = Logger()
 logger.log(text='Getting repo stars...', ts=True)
 stars = other.getrepostars()
 
