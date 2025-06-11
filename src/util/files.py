@@ -4,6 +4,7 @@ _files = [
     'data\\tokens.txt',
     'data\\proxies.txt'
 ]
+
 _dirs = [
     'data'
 ]

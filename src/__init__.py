@@ -1,3 +1,5 @@
+# i will leave this code here cuz i fr dont know what does it do lol :P
+
 version = 1.0
 import sys, os; sys.dont_write_bytecode = True; os.environ['PYTHONDONTWRITEBYTECODE'] = '1'; os.system('cls')
 import subprocess

@@ -24,7 +24,9 @@ class ui:
         return '\n'.join(centeredlines)
     
     def bar():
-        bar = f'{co.main}«{len(files.read('data\\tokens.txt'))}» Tokens                   «{len(files.read('data\\proxies.txt'))}» Proxies'
+        tokens = len(files.read('data\\tokens.txt'))
+        proxies = len(files.read('data\\proxies.txt'))
+        bar = f"{co.main}«{tokens}» Tokens{' ' * 20}«{proxies}» Proxies"
 
         bar: str = ui.center(text=bar, size=os.get_terminal_size().columns)
 
@@ -46,7 +48,7 @@ class ui:
         print(banner)
         
     def menu():
-        menu = fr'''{co.main}
+        menu = f'''{co.main}
 ╭────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                │
 │   «01» Server managment   «06» Webhook menu       «11» Annoying menu      «18» Unk             │
@@ -64,7 +66,7 @@ class ui:
 
         print(menu)
 
-    def input(text: str, module: str = None, yesno: bool = False):
+    def input(text: str, module: str = None, yesno: bool = False) -> str | bool:
         module_str = f'{co.main}[{co.reset}{module}{co.main}] ' if module else ''
         prompt = f'{module_str}{co.main}[{co.reset}{text}{co.main}]'
         if yesno:
