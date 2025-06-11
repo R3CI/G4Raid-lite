@@ -1,9 +1,9 @@
 from src import *
-from src.util.logger import logger
+from src.util.logger import Logger
 
 class servermanagment:
     def __init__(self):
-        self.logger = logger(module='Server Managment')
+        self.logger = Logger(module='Server Managment')
     
     def menu(self):
         pass
