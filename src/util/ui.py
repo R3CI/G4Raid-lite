@@ -70,7 +70,7 @@ class ui:
         
     def menu(self):
         menu = fr'''{co.reset}
-USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING │ GET PAID VERSION ON https://r3ci.sell.app/product/g4spam
+USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING │ GET PAID VERSION ON https://g4tools.top
 ╭────────────────────────────────────────────────────────────────────────────────────────────────╮
 │                                                                                                │
 │   «01» Server menu        «06» Webhook menu       «11» Unk                «18» Unk             │
