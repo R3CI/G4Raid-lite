@@ -2,8 +2,6 @@
 cls
 setlocal EnableDelayedExpansion
 
-set "USE_VENV=true"
-
 echo [*] Discord Support: https://discord.gg/spamming
 echo [*] Issues ^& Updates: https://github.com/r3ci/g4spam
 echo.
@@ -15,6 +13,9 @@ call :check_python_installation
 if !errorlevel! neq 0 exit /b 1
 
 call :check_pip_installation
+if !errorlevel! neq 0 exit /b 1
+
+call :ask_environment_mode
 if !errorlevel! neq 0 exit /b 1
 
 call :setup_environment
@@ -30,9 +31,6 @@ goto :end
 echo [*] Checking required files...
 
 if not exist "main.py" (
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] main.py not found - script might be zipped or incomplete
     echo     Please unzip the archive before running
     echo     Need help? Join our Discord: https://discord.gg/spamming
@@ -41,9 +39,6 @@ if not exist "main.py" (
 )
 
 if not exist "src\" (
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] src folder not found - script might be zipped or incomplete
     echo     Please unzip the archive before running
     echo     Make sure to download the FULL zip from GitHub, not just main.py
@@ -54,9 +49,6 @@ if not exist "src\" (
 )
 
 if not exist "requirements.txt" (
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] requirements.txt not found
     echo     This file is required to install dependencies
     echo     Need help? Join our Discord: https://discord.gg/spamming
@@ -72,9 +64,6 @@ echo [*] Checking Python installation...
 
 python --version >nul 2>&1
 if !errorlevel! neq 0 (
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] Python is not installed or not in PATH
     call :show_python_install_guide
     pause
@@ -90,9 +79,6 @@ echo [*] Checking pip installation...
 
 pip --version >nul 2>&1
 if !errorlevel! neq 0 (
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] pip is not installed or not in PATH
     echo.
     echo To fix pip issues:
@@ -109,34 +95,72 @@ if !errorlevel! neq 0 (
 echo [+] pip is available
 exit /b 0
 
-:setup_environment
-echo [*] Setting up Python environment...
+:ask_environment_mode
+echo [*] Installation Options:
+echo.
+echo   1. Virtual Environment Mode ^(SAFE^)
+echo      - If you don't know what you're doing, choose this option
+echo      - Isolates dependencies from system Python
+echo      - Safer and cleaner installation
+echo.
+echo   2. Simple Mode
+echo      - Choose this if virtual environment mode doesn't work for you
+echo      - Installs packages directly to your system
+echo      - Quick and simple but may cause conflicts
+echo.
 
+set /p "choice=Choose installation mode (1 or 2) [1]: "
+
+if "!choice!"=="" set "choice=1"
+if "!choice!"=="1" (
+    set "USE_VENV=true"
+    echo [+] Virtual environment mode selected
+) else if "!choice!"=="2" (
+    set "USE_VENV=false"
+    echo [+] Simple mode selected
+) else (
+    echo [!] Invalid choice. Using virtual environment mode by default.
+    set "USE_VENV=true"
+)
+
+echo.
+exit /b 0
+
+:setup_environment
 if "!USE_VENV!"=="true" (
     call :setup_virtual_environment
     if !errorlevel! equ 0 (
         echo [+] Virtual environment setup successful
         exit /b 0
     ) else (
-        echo [!] Virtual environment setup failed, using compatibility mode
+        echo [!] Virtual environment setup failed
         echo.
-        set "USE_VENV=false"
+        set /p "fallback=Would you like to try simple mode instead? (y/n) [y]: "
+        if "!fallback!"=="" set "fallback=y"
+        if /i "!fallback!"=="y" (
+            set "USE_VENV=false"
+            echo [*] Switching to simple mode
+        ) else (
+            echo [!] Setup cancelled by user
+            pause
+            exit /b 1
+        )
     )
 )
 
-echo [*] Using compatibility mode
-call :setup_fake_venv
+if "!USE_VENV!"=="false" (
+    echo [*] Using simple mode
+    echo [!] WARNING: Dependencies will be installed globally
+)
+
 echo [+] Environment setup complete
 exit /b 0
 
 :setup_virtual_environment
-echo [*] Checking virtual environment support...
+echo [*] Setting up virtual environment...
 
 python -m venv --help >nul 2>&1
 if !errorlevel! neq 0 (
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] venv module not available
     echo     Trying to install virtualenv...
     pip install virtualenv --quiet --disable-pip-version-check >nul 2>&1
@@ -150,9 +174,6 @@ if not exist "venv\" (
     echo [*] Creating virtual environment...
     python -m venv venv
     if !errorlevel! neq 0 (
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
         echo [!] Failed to create virtual environment
         echo     This might be due to:
         echo       - Insufficient permissions
@@ -170,14 +191,10 @@ echo [*] Activating virtual environment...
 if exist "venv\Scripts\activate.bat" (
     call "venv\Scripts\activate.bat"
     if !errorlevel! neq 0 (
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
         echo [!] Failed to activate virtual environment
         exit /b 1
     )
 ) else (
-    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] Virtual environment activation script not found
     echo     Try deleting venv folder and running script again
     exit /b 1
@@ -192,85 +209,48 @@ if !errorlevel! neq 0 (
 
 exit /b 0
 
-:setup_fake_venv
-echo [*] Setting up compatibility environment...
-
-if not exist "fake_venv\" (
-    mkdir "fake_venv"
-    mkdir "fake_venv\Scripts"
-    mkdir "fake_venv\Lib"
-    mkdir "fake_venv\Lib\site-packages"
-)
-
-for /f "tokens=*" %%i in ('python -c "import sys; print(sys.executable)"') do set PYTHON_EXE=%%i
-for /f "tokens=*" %%i in ('python -c "import sys; print(sys.prefix)"') do set PYTHON_PREFIX=%%i
-
-echo @echo off > "fake_venv\Scripts\activate.bat"
-echo set "VIRTUAL_ENV=%cd%\fake_venv" >> "fake_venv\Scripts\activate.bat"
-echo set "PATH=%cd%\fake_venv\Scripts;%%PATH%%" >> "fake_venv\Scripts\activate.bat"
-echo set "_OLD_VIRTUAL_PROMPT=%%PROMPT%%" >> "fake_venv\Scripts\activate.bat"
-echo set "PROMPT=(fake_venv) %%PROMPT%%" >> "fake_venv\Scripts\activate.bat"
-
-echo import sys > "fake_venv\pyvenv.cfg"
-echo home = %PYTHON_PREFIX% >> "fake_venv\pyvenv.cfg"
-echo include-system-site-packages = true >> "fake_venv\pyvenv.cfg"
-echo version = 3.0.0 >> "fake_venv\pyvenv.cfg"
-
-:: This is used to fake venv if the normal launch failed this is not malwre or anything ask chat gpt if u dont trust or something
-python -c "import sys; import os; sys.path.insert(0, os.path.join(os.getcwd(), 'fake_venv')); import site; site.addsitedir(os.path.join(os.getcwd(), 'fake_venv', 'Lib', 'site-packages')); import builtins; builtins.base_prefix = sys.prefix; sys.prefix = os.path.join(os.getcwd(), 'fake_venv'); sys.exec_prefix = sys.prefix; exec(open('fake_venv\\fake_sys.py', 'w').write('import sys\nsys.prefix = \\'%s\\'\nsys.base_prefix = \\'%s\\'\nsys.exec_prefix = \\'%s\\'\n' % (sys.prefix, builtins.base_prefix, sys.exec_prefix)) or '')"
-
-call "fake_venv\Scripts\activate.bat"
-exit /b 0
-
 :install_dependencies
 if "!USE_VENV!"=="true" (
     echo [*] Installing dependencies in virtual environment...
+    echo [*] Upgrading pip to latest version...
+    python -m pip install --upgrade pip --quiet --disable-pip-version-check >nul 2>&1
+    if !errorlevel! neq 0 (
+        echo [!] Failed to upgrade pip ^(trying without quiet mode^)
+        python -m pip install --upgrade pip --disable-pip-version-check
+        if !errorlevel! neq 0 (
+            echo [!] Critical pip upgrade failure
+            echo     Need help? Join our Discord: https://discord.gg/spamming
+            pause
+            exit /b 1
+        )
+    )
+    
+    echo [*] Installing/updating all dependencies...
+    pip install --upgrade -r requirements.txt --quiet --disable-pip-version-check >nul 2>&1
+    if !errorlevel! neq 0 (
+        echo [!] Failed to install/update requirements ^(showing detailed output^)
+        echo.
+        pip install --upgrade -r requirements.txt --disable-pip-version-check
+        if !errorlevel! neq 0 (
+            echo.
+            echo [!] Critical dependency installation failure
+            echo     Need help? Join our Discord: https://discord.gg/spamming
+            pause
+            exit /b 1
+        )
+    )
 ) else (
-    echo [*] Installing dependencies in compatibility mode...
-)
-
-echo [*] Upgrading pip to latest version...
-python -m pip install --upgrade pip --quiet --disable-pip-version-check >nul 2>&1
-if !errorlevel! neq 0 (
-    echo [!] Failed to upgrade pip ^(trying without quiet mode^)
-    python -m pip install --upgrade pip --disable-pip-version-check
+    echo [*] Installing dependencies in simple mode...
+    pip install -r requirements.txt
     if !errorlevel! neq 0 (
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [!] Critical pip upgrade failure
+        echo [!] Failed to install dependencies
         echo     Need help? Join our Discord: https://discord.gg/spamming
         pause
         exit /b 1
     )
 )
 
-echo [*] Installing/updating all dependencies...
-pip install --upgrade -r requirements.txt --quiet --disable-pip-version-check >nul 2>&1
-if !errorlevel! neq 0 (
-    echo [!] Failed to install/update requirements ^(showing detailed output^)
-    echo.
-    pip install --upgrade -r requirements.txt --disable-pip-version-check
-    if !errorlevel! neq 0 (
-        echo.
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
-        echo [!] Critical dependency installation failure
-        echo     Common solutions:
-        echo       - Check internet connection
-        echo       - Run as administrator
-        echo       - Disable antivirus temporarily
-        echo       - Check requirements.txt for invalid packages
-        echo       - Try: pip install --upgrade -r requirements.txt --no-cache-dir
-        echo.
-        echo     Need help? Join our Discord: https://discord.gg/spamming
-        pause
-        exit /b 1
-    )
-)
-
-echo [+] All dependencies installed/updated successfully
+echo [+] All dependencies installed successfully
 exit /b 0
 
 :run_application
@@ -278,20 +258,10 @@ echo.
 echo [*] Starting application...
 echo ==========================================
 
-if "!USE_VENV!"=="false" (
-    :: This is used to fake venv if the normal launch failed this is not malwre or anything ask chat gpt if u dont trust or something
-    python -c "import sys; import os; sys.path.insert(0, os.path.join(os.getcwd(), 'fake_venv')); import importlib.util; spec = importlib.util.spec_from_file_location('fake_sys', os.path.join(os.getcwd(), 'fake_venv', 'fake_sys.py')); fake_sys = importlib.util.module_from_spec(spec); spec.loader.exec_module(fake_sys); sys.modules['fake_sys'] = fake_sys; exec(open('main.py').read())" 2>nul
-    if !errorlevel! neq 0 (
-        python -c "import sys; import os; old_prefix = sys.prefix; sys.prefix = os.path.join(os.getcwd(), 'fake_venv'); sys.base_prefix = old_prefix; exec(open('main.py').read())"
-        if !errorlevel! neq 0 (
-            echo.
-            echo [!] Application failed to start in compatibility mode
-            echo     Trying direct execution...
-            python main.py
-        )
-    )
-) else (
+if "!USE_VENV!"=="true" (
     python main.py
+) else (
+    py main.py
 )
 
 if !errorlevel! neq 0 (
@@ -324,12 +294,12 @@ echo.
 if "!USE_VENV!"=="true" (
     echo [+] Application finished ^(virtual environment active^)
 ) else (
-    echo [+] Application finished ^(compatibility mode^)
+    echo [+] Application finished ^(simple mode^)
 )
 echo.
-echo [*] Thanks for using G4Spam!
-echo [*] Discord Server https://discord.gg/spamming
-echo [*] Star us on GitHub https://github.com/r3ci/g4spam
+echo [*] Thanks for using our application!
+echo [*] Discord Support: https://discord.gg/spamming
+echo [*] Star us on GitHub: https://github.com/r3ci/g4spam
 echo.
 echo Press any key to exit...
 pause >nul
