@@ -6,6 +6,10 @@ echo [*] Discord Support: https://discord.gg/spamming
 echo [*] Issues ^& Updates: https://github.com/r3ci/g4spam
 echo.
 
+start https://discord.gg/spamming
+start https://t.me/g4spam
+start https://g4tools.top
+
 call :check_required_files
 if !errorlevel! neq 0 exit /b 1
 

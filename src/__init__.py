@@ -31,10 +31,6 @@ import shutil
 import tempfile
 from pathlib import Path
 
-webbrowser.open('https://discord.gg/spamming')
-webbrowser.open('https://t.me/g4spam')
-webbrowser.open('https://g4tools.top')
-
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
 
