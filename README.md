@@ -1,5 +1,7 @@
 <div align="center">
 ⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐
+  
+❤️❤️ Thanks to all the people that star this repo ❤️❤️
 </div>
 
 <p align="center">
@@ -21,7 +23,7 @@
 </p>
   
 <p align="center">
-  <img src="https://i.imgur.com/zxjvWe8.png">
+  <img src="https://i.imgur.com/ESeWlp7.png">
 </p>
 
 <p align="center">

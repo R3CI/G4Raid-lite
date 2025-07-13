@@ -34,6 +34,9 @@ goto :end
 echo [*] Checking required files...
 
 if not exist "main.py" (
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] main.py not found - script might be zipped or incomplete
     echo     Please unzip the archive before running
     echo     Need help? Join our Discord: https://discord.gg/spamming
@@ -42,6 +45,9 @@ if not exist "main.py" (
 )
 
 if not exist "src\" (
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] src folder not found - script might be zipped or incomplete
     echo     Please unzip the archive before running
     echo     Make sure to download the FULL zip from GitHub, not just main.py
@@ -52,6 +58,9 @@ if not exist "src\" (
 )
 
 if not exist "requirements.txt" (
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] requirements.txt not found
     echo     This file is required to install dependencies
     echo     Need help? Join our Discord: https://discord.gg/spamming
@@ -67,6 +76,9 @@ echo [*] Checking Python installation...
 
 python --version >nul 2>&1
 if !errorlevel! neq 0 (
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] Python is not installed or not in PATH
     call :show_python_install_guide
     pause
@@ -82,6 +94,9 @@ echo [*] Checking pip installation...
 
 pip --version >nul 2>&1
 if !errorlevel! neq 0 (
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] pip is not installed or not in PATH
     echo.
     echo To fix pip issues:
@@ -123,6 +138,9 @@ echo [*] Checking virtual environment support...
 
 python -m venv --help >nul 2>&1
 if !errorlevel! neq 0 (
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] venv module not available
     echo     Trying to install virtualenv...
     pip install virtualenv --quiet --disable-pip-version-check >nul 2>&1
@@ -136,6 +154,9 @@ if not exist "venv\" (
     echo [*] Creating virtual environment...
     python -m venv venv
     if !errorlevel! neq 0 (
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
         echo [!] Failed to create virtual environment
         echo     This might be due to:
         echo       - Insufficient permissions
@@ -153,10 +174,14 @@ echo [*] Activating virtual environment...
 if exist "venv\Scripts\activate.bat" (
     call "venv\Scripts\activate.bat"
     if !errorlevel! neq 0 (
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
         echo [!] Failed to activate virtual environment
         exit /b 1
     )
 ) else (
+    echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
     echo [!] Virtual environment activation script not found
     echo     Try deleting venv folder and running script again
     exit /b 1
@@ -214,6 +239,9 @@ if !errorlevel! neq 0 (
     echo [!] Failed to upgrade pip ^(trying without quiet mode^)
     python -m pip install --upgrade pip --disable-pip-version-check
     if !errorlevel! neq 0 (
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
         echo [!] Critical pip upgrade failure
         echo     Need help? Join our Discord: https://discord.gg/spamming
         pause
@@ -229,6 +257,9 @@ if !errorlevel! neq 0 (
     pip install --upgrade -r requirements.txt --disable-pip-version-check
     if !errorlevel! neq 0 (
         echo.
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
+        echo [#] IF YOU NEED HELP CONTACT THRU THE DISCORD DISCORD.GGG/SPAMMING
         echo [!] Critical dependency installation failure
         echo     Common solutions:
         echo       - Check internet connection

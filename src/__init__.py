@@ -39,7 +39,6 @@ import shutil
 import tempfile
 from pathlib import Path
 
-webbrowser.open('https://github.com/R3CI/G4Spam')
 webbrowser.open('https://discord.gg/spamming')
 webbrowser.open('https://t.me/g4spam')
 webbrowser.open('https://g4tools.top')
