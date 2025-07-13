@@ -4,10 +4,6 @@ setlocal EnableDelayedExpansion
 
 set "USE_VENV=true"
 
-echo ==========================================
-echo Python Application Setup Script
-echo ==========================================
-echo.
 echo [*] Discord Support: https://discord.gg/spamming
 echo [*] Issues ^& Updates: https://github.com/r3ci/g4spam
 echo.
