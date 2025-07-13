@@ -8,14 +8,6 @@ version = '1.0.6'
 import sys, os;sys.dont_write_bytecode = True;os.environ['PYTHONDONTWRITEBYTECODE'] = '1';os.system('cls');os.system('title G4Spam FREE - launching...')
 import subprocess
 import time
-
-if sys.prefix == sys.base_prefix:
-    print('[!] Not inside virtual environment Launching run.bat in 3s')
-    time.sleep(3)
-    script = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'run.bat')
-    os.system(f'start "" "{script}"')
-    sys.exit()
-
 from importlib.metadata import version as getpackageversion
 from datetime import datetime as dt, timezone
 from pypresence import Presence
