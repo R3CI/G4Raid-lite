@@ -2,6 +2,16 @@
 cls
 setlocal EnableDelayedExpansion
 
+REM ==========================================
+REM CONFIGURATION - Change this value to control installation mode
+REM ==========================================
+REM Set ENVIRONMENT_MODE to:
+REM   1 = Virtual Environment Mode (SAFE) - Isolates dependencies from system Python
+REM   2 = Simple Mode - Installs packages directly to your system
+REM ==========================================
+set "ENVIRONMENT_MODE=1"
+REM ==========================================
+
 echo [*] Discord Support: https://discord.gg/spamming
 echo [*] Issues ^& Updates: https://github.com/r3ci/g4spam
 echo.
@@ -19,7 +29,7 @@ if !errorlevel! neq 0 exit /b 1
 call :check_pip_installation
 if !errorlevel! neq 0 exit /b 1
 
-call :ask_environment_mode
+call :set_environment_mode
 if !errorlevel! neq 0 exit /b 1
 
 call :setup_environment
@@ -99,34 +109,31 @@ if !errorlevel! neq 0 (
 echo [+] pip is available
 exit /b 0
 
-:ask_environment_mode
-echo [*] Installation Options:
-echo.
-echo   1. Virtual Environment Mode ^(SAFE^)
-echo      - If you don't know what you're doing, choose this option
-echo      - Isolates dependencies from system Python
-echo      - Safer and cleaner installation
-echo.
-echo   2. Simple Mode
-echo      - Choose this if virtual environment mode doesn't work for you
-echo      - Installs packages directly to your system
-echo      - Quick and simple but may cause conflicts
+:set_environment_mode
+echo [*] Environment Mode Configuration:
 echo.
 
-set /p "choice=Choose installation mode (1 or 2) [1]: "
-
-if "!choice!"=="" set "choice=1"
-if "!choice!"=="1" (
+if "!ENVIRONMENT_MODE!"=="1" (
     set "USE_VENV=true"
-    echo [+] Virtual environment mode selected
-) else if "!choice!"=="2" (
+    echo [+] Virtual Environment Mode (SAFE) - Selected
+    echo     - Isolates dependencies from system Python
+    echo     - Safer and cleaner installation
+) else if "!ENVIRONMENT_MODE!"=="2" (
     set "USE_VENV=false"
-    echo [+] Simple mode selected
+    echo [+] Simple Mode - Selected
+    echo     - Installs packages directly to your system
+    echo     - Quick and simple but may cause conflicts
 ) else (
-    echo [!] Invalid choice. Using virtual environment mode by default.
+    echo [!] Invalid ENVIRONMENT_MODE value: !ENVIRONMENT_MODE!
+    echo     Valid values are 1 (Virtual Environment) or 2 (Simple Mode)
+    echo     Defaulting to Virtual Environment Mode
     set "USE_VENV=true"
+    set "ENVIRONMENT_MODE=1"
 )
 
+echo.
+echo [*] To change mode, edit ENVIRONMENT_MODE variable at the top of this script
+echo     Current mode: !ENVIRONMENT_MODE!
 echo.
 exit /b 0
 
