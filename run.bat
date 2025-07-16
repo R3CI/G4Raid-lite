@@ -115,17 +115,17 @@ echo.
 
 if "!ENVIRONMENT_MODE!"=="1" (
     set "USE_VENV=true"
-    echo [+] Virtual Environment Mode (SAFE) - Selected
-    echo     - Isolates dependencies from system Python
-    echo     - Safer and cleaner installation
+    echo [+] Virtual Environment Mode ^(SAFE^) Selected
+    echo     Isolates dependencies from system Python
+    echo     Safer and cleaner installation
 ) else if "!ENVIRONMENT_MODE!"=="2" (
     set "USE_VENV=false"
-    echo [+] Simple Mode - Selected
-    echo     - Installs packages directly to your system
-    echo     - Quick and simple but may cause conflicts
+    echo [+] Simple Mode Selected
+    echo     Installs packages directly to your system
+    echo     Quick and simple but may cause conflicts
 ) else (
     echo [!] Invalid ENVIRONMENT_MODE value: !ENVIRONMENT_MODE!
-    echo     Valid values are 1 (Virtual Environment) or 2 (Simple Mode)
+    echo     Valid values are 1 ^(Virtual Environment^) or 2 ^(Simple Mode^)
     echo     Defaulting to Virtual Environment Mode
     set "USE_VENV=true"
     set "ENVIRONMENT_MODE=1"
@@ -187,10 +187,10 @@ if not exist "venv\" (
     if !errorlevel! neq 0 (
         echo [!] Failed to create virtual environment
         echo     This might be due to:
-        echo       - Insufficient permissions
-        echo       - Antivirus blocking
-        echo       - Corrupted Python installation
-        echo       - Insufficient disk space
+        echo       Insufficient permissions
+        echo       Antivirus blocking
+        echo       Corrupted Python installation
+        echo       Insufficient disk space
         exit /b 1
     )
     echo [+] Virtual environment created successfully
