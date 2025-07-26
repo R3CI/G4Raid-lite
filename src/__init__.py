@@ -3,12 +3,11 @@
 # Licensed under the GNU General Public License v3.0 (GPL-3.0).
 # For more details, visit https://github.com/R3CI/G4Spam
 
-version = '1.0.6'
+version = '1.1'
 
 import sys, os;sys.dont_write_bytecode = True;os.environ['PYTHONDONTWRITEBYTECODE'] = '1';os.system('cls');os.system('title G4Spam FREE - launching...')
 import subprocess
 import time
-from importlib.metadata import version as getpackageversion
 from datetime import datetime as dt, timezone
 from pypresence import Presence
 import webbrowser
