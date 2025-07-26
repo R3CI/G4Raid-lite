@@ -69,7 +69,9 @@ class ui:
         
     def menu(self):
         menu = fr'''{co.reset}
-«USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING GET PAID VERSION ON https://g4tools.top»
+«USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING»
+«GET PAID VERSION ON https://g4tools.top»
+
 «01» Server menu        «06» Webhook menu       «11» Token filler       «18» None     
 «02» Token menu         «07» Admin menu         «12» Funnny menu        «17» None     
 «03» Spamming menu      «08» Proxy menu         «13» Advertising menu   «18» None     
