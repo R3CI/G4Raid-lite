@@ -42,7 +42,7 @@ while True:
     sui.menu()
 
     logger.log('Welcome to G4Spam made by r3ci <3 github.com/R3CI/G4Spam')
-    logger.log(f'Get FULL version on https://r3ci.sell.app/product/g4spam')
+    logger.log(f'Get FULL version on https://g4tools.top')
     logger.log(f'Current version is {version}')
     chosen = sui.input('Option', str)
     options = {
@@ -52,15 +52,16 @@ while True:
         '4': bypassmenu().menu,
         '5': vcmenu().menu,
         '6': webhookmenu().menu,
-        '7': serveradminmenu().menu,
+        '7': adminmenu().menu,
         '8': proxymenu().menu,
         '9': massdmmenu().menu,
         '10': massreportmenu().menu,
-        '12': funnymenu().menu,
-        '13': advertisingmenu().menu,
-        '14': boostingmenu().menu,
-        '15': scrapingmenu().menu,
-        '19': sources.menu,
+        '11': tokenfiller().menu,
+        '12': lambda: sui.paidnotif(),
+        '13': lambda: sui.paidnotif(),
+        '14': lambda: sui.paidnotif(),
+        '15': lambda: sui.paidnotif(),
+        '19': suppliers.menu,
         '20': lambda: exit(),
     }
 
