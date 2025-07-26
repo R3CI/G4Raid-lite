@@ -6,7 +6,6 @@
 from src import *
 from src.util.files import files
 from src.util.rpc import RPC
-from src.util.other import other
 
 class ui:
     def __init__(self, module=None):
@@ -70,20 +69,16 @@ class ui:
         
     def menu(self):
         menu = fr'''{co.reset}
-USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING │ GET PAID VERSION ON https://g4tools.top
-╭────────────────────────────────────────────────────────────────────────────────────────────────╮
-│                                                                                                │
-│   «01» Server menu        «06» Webhook menu       «11» Unk                «18» Unk             │
-│   «02» Token menu         «07» Server Admin menu  «12» Funnny menu        «17» Unk             │
-│   «03» Spamming menu      «08» Proxy menu         «13» Advertising menu   «18» Unk             │
-│   «04» Bypass menu        «09» Mass DM menu       «14» Boosting menu      «19» Sources         │
-│   «05» VC menu            «10» Mass report menu   «15» Scraping menu      «20» Exit            │
-│                                                                                                │
-╰────────────────────────────────────────────────────────────────────────────────────────────────╯
+«USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING GET PAID VERSION ON https://g4tools.top»
+«01» Server menu        «06» Webhook menu       «11» Token filler       «18» None     
+«02» Token menu         «07» Admin menu         «12» Funnny menu        «17» None     
+«03» Spamming menu      «08» Proxy menu         «13» Advertising menu   «18» None     
+«04» Bypass menu        «09» Mass DM menu       «14» Boosting menu      «19» Suppliers
+«05» VC menu            «10» Mass report menu   «15» Scraping menu      «20» Exit     
 '''     
         menu: str = self.center(text=menu, size=os.get_terminal_size().columns)
         
-        for char in ['╭', '╯', '╮', '╰', '─', '│', '»', '«']:
+        for char in ['»', '«']:
             menu = menu.replace(char, f'{co.main}{char}{co.reset}')
 
         print(menu)
@@ -165,3 +160,66 @@ USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING │ GET PAID VERSION
         
         except Exception:
             return str(text)
+
+
+    def paidnotif(self):
+        def fadein(win, alpha=0):
+            alpha = round(alpha + 0.05, 2)
+            if alpha <= 1:
+                win.attributes('-alpha', alpha)
+                win.after(10, fadein, win, alpha)
+
+        def close(win, alpha=1):
+            alpha = round(alpha - 0.05, 2)
+            if alpha > 0:
+                win.attributes('-alpha', alpha)
+                win.after(10, close, win, alpha)
+            else:
+                win.destroy()
+
+        def onok():
+            close(root)
+
+        def ongetpaid():
+            webbrowser.open('https://g4tools.top')
+            close(root)
+
+        root = Tk()
+        root.title('')
+        root.overrideredirect(True)
+        root.attributes('-topmost', True)
+        root.attributes('-alpha', 0)
+        root.configure(bg='#000000')
+
+        outer = Frame(root, bg='#000000')
+        outer.pack(padx=2, pady=2)
+
+        inner = Frame(outer, bg='#1e1e1e')
+        inner.pack()
+
+        style = ttk.Style()
+        style.theme_use('clam')
+        style.configure('TLabel', background='#1e1e1e', foreground='#ffffff', font=('Segoe UI', 11))
+        style.configure('TButton', font=('Segoe UI', 10), foreground='#ffffff', background='#2d2d30', borderwidth=0, padding=6)
+        style.map('TButton',
+            background=[('active', '#3e3e42')],
+            relief=[('pressed', 'sunken'), ('!pressed', 'raised')]
+        )
+
+        ttk.Label(inner, text='This is a PAID ONLY feature.', anchor='center', justify='center').pack(padx=20, pady=(20, 15))
+
+        btns = Frame(inner, bg='#1e1e1e')
+        btns.pack(pady=(0, 20))
+
+        ttk.Button(btns, text='OK', command=onok).pack(side='left', padx=5)
+        ttk.Button(btns, text='Get Paid Now', command=ongetpaid).pack(side='left', padx=5)
+
+        root.update_idletasks()
+        w = root.winfo_width()
+        h = root.winfo_height()
+        x = (root.winfo_screenwidth() // 2) - (w // 2)
+        y = (root.winfo_screenheight() // 2) - (h // 2)
+        root.geometry(f'+{x}+{y}')
+
+        fadein(root)
+        root.mainloop()
