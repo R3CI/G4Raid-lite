@@ -11,7 +11,7 @@ class apibypassing:
         self.chromeversion = '136'
         self.fingerprint = f'chrome{self.chromeversion}'
         self.useragent = f'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/{self.chromeversion}.0.0.0 Safari/537.36'
-        self.clientbuild = '407742'
+        self.clientbuild = '423077'
 
         self.xsuper = {
             'os': 'Windows',
@@ -27,7 +27,7 @@ class apibypassing:
             'referrer_current': '',
             'referring_domain_current': '',
             'release_channel': 'stable',
-            'client_build_number': 407742,
+            'client_build_number': self.clientbuild,
             'client_event_source': None,
             'client_launch_id': str(uuid.uuid4()), 
             'client_heartbeat_session_id': str(uuid.uuid4()),
