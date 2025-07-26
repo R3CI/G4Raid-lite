@@ -20,7 +20,7 @@ class servermenu:
         options = {
             'Joiner (FREE)': joiner().menu,
             'Leaver (FREE)': leaver().menu,
-            'Is In Server': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Is In Server': lambda: self.ui.paidnotif(),
         }
         
         while True:

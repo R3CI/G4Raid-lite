@@ -15,9 +15,9 @@ class vcmenu:
 
     def menu(self):
         options = {
-            'VC Joiner': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'VC Spam Join-Leave': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Soundboard Spammer': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'VC Joiner': lambda: self.ui.paidnotif(),
+            'VC Spam Join-Leave': lambda: self.ui.paidnotif(),
+            'Soundboard Spammer': lambda: self.ui.paidnotif(),
         }
         
         while True:

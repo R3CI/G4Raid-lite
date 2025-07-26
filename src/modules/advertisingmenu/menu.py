@@ -15,7 +15,7 @@ class advertisingmenu:
 
     def menu(self):
         options = {
-            'Token Filler': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Token Filler': lambda: self.ui.paidnotif(),
         }
         
         while True:

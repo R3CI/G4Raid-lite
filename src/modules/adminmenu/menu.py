@@ -15,7 +15,7 @@ class adminmenu:
 
     def menu(self):
         options = {
-            'Soon': lambda: (self.logger.log('Coming soon'))[0],
+            'Soon': lambda: self.ui.paidnotif(),
         }
         
         while True:

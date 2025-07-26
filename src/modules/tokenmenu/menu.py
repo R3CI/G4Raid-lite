@@ -19,10 +19,10 @@ class tokenmenu:
     def menu(self):
         options = {
             'Checker (FREE)': checker().menu,
-            'Bio Changer': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Avatar Changer': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Clan Tag Changer': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Log On Browser': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Bio Changer': lambda: self.ui.paidnotif(),
+            'Avatar Changer': lambda: self.ui.paidnotif(),
+            'Clan Tag Changer': lambda: self.ui.paidnotif(),
+            'Log On Browser': lambda: self.ui.paidnotif(),
             'Formatter (FREE)': formatter().menu
         }
         

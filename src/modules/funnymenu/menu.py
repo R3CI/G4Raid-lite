@@ -10,10 +10,10 @@ class funnymenu:
 
     def menu(self):
         options = {
-            'Reaction Speller': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Chat Crasher': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Audit Log Fucker': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Mass Caller': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Reaction Speller': lambda: self.ui.paidnotif(),
+            'Chat Crasher': lambda: self.ui.paidnotif(),
+            'Audit Log Fucker': lambda: self.ui.paidnotif(),
+            'Mass Caller': lambda: self.ui.paidnotif(),
         }
         
         while True:

@@ -18,9 +18,9 @@ class bypassmenu:
     def menu(self):
         options = {
             'Reaction Bypass (FREE)': reactionbypass().menu,
-            'Button Bypass': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Onboarding': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Rule Bypass': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Button Bypass': lambda: self.ui.paidnotif(),
+            'Onboarding': lambda: self.ui.paidnotif(),
+            'Rule Bypass': lambda: self.ui.paidnotif(),
         }
         
         while True:

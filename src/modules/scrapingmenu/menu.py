@@ -15,9 +15,9 @@ class scrapingmenu:
 
     def menu(self):
         options = {
-            'ID Scraper': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Username Scraper': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Invite Scraper': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input(''))
+            'ID Scraper': lambda: self.ui.paidnotif(),
+            'Username Scraper': lambda: self.ui.paidnotif(),
+            'Invite Scraper': lambda: self.ui.paidnotif()
         }
         
         while True:

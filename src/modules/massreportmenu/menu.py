@@ -15,8 +15,8 @@ class massreportmenu:
 
     def menu(self):
         options = {
-            'Profile Mass Report': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Message Mass Report': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Profile Mass Report': lambda: self.ui.paidnotif(),
+            'Message Mass Report': lambda: self.ui.paidnotif()
         }
         
         while True:

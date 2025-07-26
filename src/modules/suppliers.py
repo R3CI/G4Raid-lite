@@ -13,7 +13,7 @@ class suppliers:
         sui.prep()
         sui.createmenu([
             'G4Spam PAID',
-            'Lime SOURCE'
+            'Lime SOURCE',
             'Private raiders',
             'Proxies',
             'Tokens',

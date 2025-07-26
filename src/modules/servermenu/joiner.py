@@ -69,6 +69,8 @@ class joiner:
     def menu(self):
         self.ui.prep()
         self.logger.log('BETTER BYPASSING JOINER IN PAID ONLY!')
+        self.logger.log('BETTER BYPASSING JOINER IN PAID ONLY!')
+        self.logger.log('BETTER BYPASSING JOINER IN PAID ONLY!')
         self.invite = self.ui.input('Invite link', str)
         self.invite = discordutils.extractinv(self.invite)
         self.delay = self.ui.delayinput()

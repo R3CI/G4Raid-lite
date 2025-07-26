@@ -16,7 +16,7 @@ class boostingmenu:
 
     def menu(self):
         options = {
-            'Booster': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Booster': lambda: self.ui.paidnotif(),
         }
         
         while True:

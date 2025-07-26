@@ -105,8 +105,10 @@ class channelspammer:
 
         self.doping = self.ui.input('Ping', bool)
         if self.doping:
-            self.pinglen = self.ui.input('Amount of pings', int)
-
+            self.logger.log('Pinging is paid only')
+            self.logger.log('Pinging is paid only')
+            self.logger.log('Pinging is paid only')
+            self.ui.paidnotif()
 
         if self.ui.input('Use messages from a file', bool):
             path = files.choosefile()

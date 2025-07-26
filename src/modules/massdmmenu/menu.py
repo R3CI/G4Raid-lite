@@ -15,7 +15,7 @@ class massdmmenu:
 
     def menu(self):
         options = {
-            'One-User Mass DM': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'One-User Mass DM': lambda: self.ui.paidnotif(),
         }
         
         while True:

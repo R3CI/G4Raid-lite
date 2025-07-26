@@ -18,8 +18,8 @@ class spammingmenu:
     def menu(self):
         options = {
             'Channel Spammer (FREE)': channelspammer().menu,
-            'Multi-Channel Spammer': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
-            'Reply Spammer': lambda: (self.logger.log('This option is PAID ONLY, enter to continue'), input('')),
+            'Multi-Channel Spammer': lambda: self.ui.paidnotif(),
+            'Reply Spammer': lambda: self.ui.paidnotif(),
         }
         
         while True:
