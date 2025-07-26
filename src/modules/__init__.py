@@ -4,7 +4,7 @@ from src.modules.spammingmenu.menu                 import spammingmenu
 from src.modules.bypassmenu.menu                   import bypassmenu
 from src.modules.vcmenu.menu                       import vcmenu
 from src.modules.webhookmenu.menu                  import webhookmenu
-from src.modules.serveradminmenu.menu              import serveradminmenu
+from src.modules.adminmenu.menu                    import adminmenu
 from src.modules.proxymenu.menu                    import proxymenu
 from src.modules.massdmmenu.menu                   import massdmmenu
 from src.modules.massreportmenu.menu               import massreportmenu

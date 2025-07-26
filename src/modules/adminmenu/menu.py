@@ -7,9 +7,9 @@ from src import *
 from src.util.logger import logger
 from src.util.ui import ui
 
-class serveradminmenu:
+class adminmenu:
     def __init__(self):
-        self.module = 'Server Admin Menu'
+        self.module = 'Admin Menu'
         self.logger = logger(self.module)
         self.ui = ui(self.module)
 
