@@ -6,32 +6,39 @@
 version = '1.1'
 import sys
 sys.dont_write_bytecode = True
-
 import os
-import subprocess
-import time
-from datetime import datetime as dt, timezone
-from pypresence import Presence
-import webbrowser
-import re
-import json
-import traceback
-import copy
-import threading as threadinglib
-import uuid
-import requests
-import string
-import curl_cffi as curlcffi_
-import random
-import base64
-import zipfile
-import tempfile
-from curl_cffi import requests as curlcffi
-from tkinter import Tk, Frame
-from tkinter import ttk
-from tkinter.filedialog import askopenfilename, askdirectory
-import shutil
-from pathlib import Path
+try:
+    import subprocess
+    import time
+    from datetime import datetime as dt, timezone
+    from pypresence import Presence
+    import webbrowser
+    import re
+    import json
+    import traceback
+    import copy
+    import threading as threadinglib
+    import uuid
+    import requests
+    import string
+    import curl_cffi as curlcffi_
+    import random
+    import base64
+    import zipfile
+    import tempfile
+    from curl_cffi import requests as curlcffi
+    from tkinter import Tk, Frame
+    from tkinter import ttk
+    from tkinter.filedialog import askopenfilename, askdirectory
+    import shutil
+    from pathlib import Path
+except Exception as e:
+    print(f'Got an error while importing {e}')
+    print('Attempting to fix')
+    os.system('pip install -r requirements.txt')
+    print('Done')
+    input('Run again')
+
 os.system('cls');os.system('title G4Spam FREE - launching...')
 
 
