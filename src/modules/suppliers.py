@@ -6,9 +6,9 @@
 from src import *
 from src.util.ui import ui
 
-class sources:
+class suppliers:
     def menu():
-        module = 'Sources'
+        module = 'Suppliers'
         sui = ui(module)
         sui.prep()
         sui.createmenu([
@@ -41,7 +41,7 @@ class sources:
 
             if chosen == '1':   webbrowser.open('https://www.tokenu.net?ref=r3ci')
             elif chosen == '2': webbrowser.open('https://www.vital-proxies.com/?ref=m3dm062i')
-            else:               sources.menu()
+            else:               suppliers.menu()
 
         elif chosen == '5':
             sui.createmenu([
@@ -54,7 +54,7 @@ class sources:
 
             if chosen == '1':   webbrowser.open('https://www.tokenu.net?ref=r3ci')
             elif chosen == '2': webbrowser.open('https://lzt.market/discord/')
-            else:               sources.menu()
+            else:               suppliers.menu()
 
         elif chosen == '6':
             sui.createmenu([
@@ -65,4 +65,4 @@ class sources:
             return
 
         else:
-            sources.menu()
+            suppliers.menu()
