@@ -56,7 +56,7 @@ while True:
         '8': proxymenu().menu,
         '9': massdmmenu().menu,
         '10': massreportmenu().menu,
-        '11': tokenfiller().menu,
+        '11': lambda: sui.paidnotif(),
         '12': lambda: sui.paidnotif(),
         '13': lambda: sui.paidnotif(),
         '14': lambda: sui.paidnotif(),
