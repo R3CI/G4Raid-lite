@@ -4,8 +4,10 @@
 # For more details, visit https://github.com/R3CI/G4Spam
 
 version = '1.1'
+import sys
+sys.dont_write_bytecode = True
 
-import sys, os;sys.dont_write_bytecode = True;os.environ['PYTHONDONTWRITEBYTECODE'] = '1';os.system('cls');os.system('title G4Spam FREE - launching...')
+import os
 import subprocess
 import time
 from datetime import datetime as dt, timezone
@@ -22,13 +24,16 @@ import string
 import curl_cffi as curlcffi_
 import random
 import base64
-from curl_cffi import requests as curlcffi
-from tkinter import Tk
-from tkinter.filedialog import askopenfilename, askdirectory
 import zipfile
-import shutil
 import tempfile
+from curl_cffi import requests as curlcffi
+from tkinter import Tk, Frame
+from tkinter import ttk
+from tkinter.filedialog import askopenfilename, askdirectory
+import shutil
 from pathlib import Path
+os.system('cls');os.system('title G4Spam FREE - launching...')
+
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
