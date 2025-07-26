@@ -17,44 +17,43 @@ class sources:
             'Private raiders',
             'Proxies',
             'Tokens',
-            'Solvers',
             'Back'
         ])
         chosen = sui.input('Option', str)
 
         if chosen == '1': 
-            webbrowser.open('https://r3ci.sell.app')
+            webbrowser.open('https://g4tools.top')
 
         elif chosen == '2':
             webbrowser.open('https://r3ci.sell.app')
 
         elif chosen == '3':
-            webbrowser.open('https://r3ci.sell.app')
+            sui.log('DM me on discord')
+            input('')
 
         elif chosen == '4':
             sui.createmenu([
-                'IPRoyal',
-                'Mars proxies',
-                'Tokenu proxies',
+                'Best recommended',
+                'Second best',
                 'Back'
             ])
             chosen = sui.input('Option', str)
 
-            if chosen == '1':   webbrowser.open('https://iproyal.com/?r=429481')
-            elif chosen == '2': webbrowser.open('https://marsproxies.com/r/97040')
-            elif chosen == '3': webbrowser.open('https://proxy.tokenu.to/pricing?ref=r3ci')
+            if chosen == '1':   webbrowser.open('https://www.tokenu.net?ref=r3ci')
+            elif chosen == '2': webbrowser.open('https://www.vital-proxies.com/?ref=m3dm062i')
             else:               sources.menu()
 
         elif chosen == '5':
             sui.createmenu([
-                'My shop (UHQ + AGE GARAUNTEED)',
-                'Tokenu',
+                #'My shop (UHQ + AGE GARAUNTEED)',
+                'Best overall recommended',
+                'Second best (Deal with caution)',
                 'Back'
             ])
             chosen = sui.input('Option', str)
 
-            if chosen == '1':   webbrowser.open('https://r3ci.sell.app')
-            elif chosen == '2': webbrowser.open('https://www.tokenu.net?ref=r3ci')
+            if chosen == '1':   webbrowser.open('https://www.tokenu.net?ref=r3ci')
+            elif chosen == '2': webbrowser.open('https://lzt.market/discord/')
             else:               sources.menu()
 
         elif chosen == '6':

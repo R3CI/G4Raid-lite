@@ -12,4 +12,4 @@ from src.modules.funnymenu.menu                    import funnymenu
 from src.modules.advertisingmenu.menu              import advertisingmenu
 from src.modules.boostingmenu.menu                 import boostingmenu
 from src.modules.scrapingmenu.menu                 import scrapingmenu
-from src.modules.sources                           import sources
+from src.modules.suppliers                           import sources
