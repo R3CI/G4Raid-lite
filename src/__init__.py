@@ -7,13 +7,14 @@ version = '1.1'
 import sys
 sys.dont_write_bytecode = True
 import os
+import re
+import subprocess
+
 try:
-    import subprocess
     import time
     from datetime import datetime as dt, timezone
     from pypresence import Presence
     import webbrowser
-    import re
     import json
     import traceback
     import copy
@@ -32,12 +33,34 @@ try:
     from tkinter.filedialog import askopenfilename, askdirectory
     import shutil
     from pathlib import Path
+    
 except Exception as e:
-    print(f'Got an error while importing {e}')
-    print('Attempting to fix')
-    os.system('pip install -r requirements.txt')
-    print('Done')
-    input('Run again')
+    print('Installing modules...')
+    print('You can ignore the 2 line error messages')
+    
+    modules = [
+        'pypresence', 
+        'requests', 
+        'curl-cffi', 
+        'pathlib2',
+        'datetime',
+        'tkinter',
+        'tkinter',
+        'webbrowser',
+        'zipfile',
+        'tempfile'
+    ]
+    
+    for module in modules:
+        subprocess.run([sys.executable, '-m', 'pip', 'install', '--force-reinstall', module], capture_output=True)
+    
+    missing = re.search(r"No module named ['\"]([^'\"]+)['\"]", str(e))
+    if missing:
+        subprocess.run([sys.executable, '-m', 'pip', 'install', '--force-reinstall', missing.group(1)], capture_output=True)
+    
+    print('Done. Restart script.')
+    input('Press Enter...')
+    sys.exit()
 
 os.system('cls');os.system('title G4Spam FREE - launching...')
 

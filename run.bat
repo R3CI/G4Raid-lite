@@ -10,3 +10,4 @@ start https://t.me/g4tool
 start https://g4tools.top
 
 py main.py
+pause
