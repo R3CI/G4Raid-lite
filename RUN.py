@@ -13,6 +13,6 @@ webbrowser.open('https://discord.gg/spamming')
 webbrowser.open('https://t.me/g4tool')
 webbrowser.open('https://g4tools.top')
 
-subprocess.run([sys.executable, 'main.py'])
+subprocess.run(['python', 'main.py'])
 
 input('Press Enter to continue...')
