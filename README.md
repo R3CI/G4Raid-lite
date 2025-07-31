@@ -22,7 +22,7 @@
 </p>
   
 <p align="center">
-  <img src="https://i.imgur.com/zEzCJPj.png">
+  <img src="https://i.imgur.com/tFLoZwH.png">
 </p>
 
 <p align="center">
