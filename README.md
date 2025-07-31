@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <img src="https://i.imgur.com/zEzCJPj.png" width="250" height="250">
+  <img src="https://i.imgur.com/ytj2i7l.png" width="250" height="250">
 </p>
 
 <p align="center">
