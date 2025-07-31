@@ -62,8 +62,10 @@ except Exception as e:
     input('Press Enter...')
     sys.exit()
 
-os.system('cls');os.system('title G4Spam FREE - launching...')
-
+print('Making sure curl_cffi is up to date...')
+os.system('python -m pip install -U curl_cffi -q')
+os.system('cls')
+os.system('title G4Spam FREE - launching...')
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
