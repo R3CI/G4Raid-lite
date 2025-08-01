@@ -19,8 +19,7 @@ class files:
     def gettokens():
         with open('data\\tokens.txt', 'r') as f:
             tokens = f.read().splitlines()
-        allowed = set('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_=:')
-        return [t for t in tokens if all(c in allowed for c in t)]
+        return tokens
 
     def getproxies():
         with open('data\\proxies.txt', 'r') as f:

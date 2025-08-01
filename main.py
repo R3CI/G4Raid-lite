@@ -12,7 +12,6 @@ import sys
 sys.dont_write_bytecode = True
 
 from src import *
-from src.util.autoupdate import autoupdate; autoupdate().update()
 from src.util.client import *
 from src.util.ui import ui
 from src.util.rpc import RPC
