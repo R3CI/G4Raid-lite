@@ -15,7 +15,8 @@ packages = [
 ]
 for pkg in packages:
     subprocess.run(
-        [sys.executable, '-m', 'pip', 'install', '--force-reinstall', pkg],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL
+        ['python', '-m', 'pip', 'install', '--force-reinstall', pkg]
     )
+
+
+input('If there ware any issues they shuld be fixed now')

@@ -52,13 +52,16 @@ except Exception as e:
     ]
     
     for module in modules:
-        subprocess.run([sys.executable, '-m', 'pip', 'install', '--force-reinstall', module], capture_output=True)
+        subprocess.run(['py', '-m', 'pip', 'install', '--force-reinstall', module], capture_output=True)
+        subprocess.run(['python', '-m', 'pip', 'install', '--force-reinstall', module], capture_output=True)
     
     missing = re.search(r"No module named ['\"]([^'\"]+)['\"]", str(e))
     if missing:
-        subprocess.run([sys.executable, '-m', 'pip', 'install', '--force-reinstall', missing.group(1)], capture_output=True)
+        subprocess.run(['py', '-m', 'pip', 'install', '--force-reinstall', missing.group(1)], capture_output=True)
+        subprocess.run(['python', '-m', 'pip', 'install', '--force-reinstall', missing.group(1)], capture_output=True)
     
     print('Done. Restart script.')
+    print('IF THIS PRESISTS MAKE RUN FIXER.PY')
     input('Press Enter...')
     sys.exit()
 
