@@ -66,7 +66,8 @@ except Exception as e:
     sys.exit()
 
 print('Making sure curl_cffi is up to date...')
-os.system('python -m pip install -U curl_cffi -q')
+os.system('py -m pip install -U curl_cffi')
+os.system('python -m pip install -U curl_cffi')
 os.system('cls')
 os.system('title G4Spam FREE - launching...')
 

@@ -72,11 +72,11 @@ class ui:
 «USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING»
 «GET PAID VERSION ON https://g4tools.top»
 
-«01» Server menu        «06» Webhook menu       «11» Token filler       «18» None     
-«02» Token menu         «07» Admin menu         «12» Funnny menu        «17» None     
-«03» Spamming menu      «08» Proxy menu         «13» Advertising menu   «18» None     
-«04» Bypass menu        «09» Mass DM menu       «14» Boosting menu      «19» Suppliers
-«05» VC menu            «10» Mass report menu   «15» Scraping menu      «20» Exit     
+«01» Server menu        «06» Funny menu         «11» Token filler       «16» Admin menu  
+«02» Token menu         «07» Exploit menu       «12» Invite checker     «17» Proxy menu  
+«03» Spamming menu      «08» Mass report menu   «13» None               «18» Webhook menu
+«04» Bypass menu        «09» None               «14» None               «19» Suppliers   
+«05» VC menu            «10» None               «15» Scraping menu      «20» Exit        
 '''     
         menu: str = self.center(text=menu, size=os.get_terminal_size().columns)
         

@@ -11,7 +11,6 @@ class funnymenu:
     def menu(self):
         options = {
             'Reaction Speller': lambda: self.ui.paidnotif(),
-            'Chat Crasher': lambda: self.ui.paidnotif(),
             'Audit Log Fucker': lambda: self.ui.paidnotif(),
             'Mass Caller': lambda: self.ui.paidnotif(),
         }

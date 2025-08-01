@@ -6,10 +6,8 @@ from src.modules.vcmenu.menu                       import vcmenu
 from src.modules.webhookmenu.menu                  import webhookmenu
 from src.modules.adminmenu.menu                    import adminmenu
 from src.modules.proxymenu.menu                    import proxymenu
-from src.modules.massdmmenu.menu                   import massdmmenu
+from src.modules.exploitmenu.menu                  import exploitmenu
 from src.modules.massreportmenu.menu               import massreportmenu
 from src.modules.funnymenu.menu                    import funnymenu
-from src.modules.advertisingmenu.menu              import advertisingmenu
-from src.modules.boostingmenu.menu                 import boostingmenu
 from src.modules.scrapingmenu.menu                 import scrapingmenu
 from src.modules.suppliers                         import suppliers
