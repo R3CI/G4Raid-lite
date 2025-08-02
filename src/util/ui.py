@@ -71,6 +71,7 @@ class ui:
         menu = fr'''{co.reset}
 «USING FREE VERSION MEANING LESS UPDATES AND WORSE BYPASSING»
 «GET PAID VERSION ON https://g4tools.top»
+«THIS IS THE ONLY REAL GITHUB https:/github.com/R3CI/G4Spam»
 
 «01» Server menu        «06» Funny menu         «11» Token filler       «16» Admin menu  
 «02» Token menu         «07» Exploit menu       «12» Invite checker     «17» Proxy menu  

@@ -47,9 +47,8 @@ while True:
     sui.bar()
     sui.menu()
 
-    logger.log('Welcome to G4Spam made by r3ci <3 github.com/R3CI/G4Spam')
+    logger.log(f'G4Spam FREE has been launched over {launches} times, with {stars} stars on github! Thank you!')
     logger.log(f'Get FULL version on https://g4tools.top')
-    logger.log(f'Current version is {version}')
     chosen = sui.input('Option', int)
     options = {
         1:  lambda: servermenu().menu(),
