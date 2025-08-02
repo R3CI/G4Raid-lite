@@ -69,7 +69,7 @@ while True:
         16: lambda: adminmenu().menu(),
         17: lambda: proxymenu().menu(),
         18: lambda: webhookmenu().menu(),
-        19: lambda: suppliers().menu(),
+        19: lambda: suppliers.menu(),
         20: lambda: sys.exit(0),
     }
 
