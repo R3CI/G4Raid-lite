@@ -3,7 +3,6 @@
 # Licensed under the GNU General Public License v3.0 (GPL-3.0).
 # For more details, visit https://github.com/R3CI/G4Spam
 
-version = '1.1'
 import sys
 sys.dont_write_bytecode = True
 import os
