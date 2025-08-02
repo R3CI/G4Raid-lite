@@ -13,8 +13,9 @@ class suppliers:
         sui.prep()
         sui.createmenu([
             'G4Spam PAID',
-            'Lime SOURCE',
+            'FULL SOURCE RAIDERS',
             'Private raiders',
+            'Private projects',
             'Proxies',
             'Tokens',
             'Back'
@@ -25,13 +26,17 @@ class suppliers:
             webbrowser.open('https://g4tools.top')
 
         elif chosen == '2':
-            webbrowser.open('https://r3ci.sell.app')
+            webbrowser.open('https://g4tools.top')
 
         elif chosen == '3':
             sui.log('DM me on discord')
             input('')
 
         elif chosen == '4':
+            sui.log('DM me on discord')
+            input('')
+
+        elif chosen == '5':
             sui.createmenu([
                 'Best recommended',
                 'Second best',
@@ -43,7 +48,7 @@ class suppliers:
             elif chosen == '2': webbrowser.open('https://www.vital-proxies.com/?ref=m3dm062i')
             else:               suppliers.menu()
 
-        elif chosen == '5':
+        elif chosen == '6':
             sui.createmenu([
                 #'My shop (UHQ + AGE GARAUNTEED)',
                 'Best overall recommended',
@@ -55,11 +60,6 @@ class suppliers:
             if chosen == '1':   webbrowser.open('https://www.tokenu.net?ref=r3ci')
             elif chosen == '2': webbrowser.open('https://lzt.market/discord/')
             else:               suppliers.menu()
-
-        elif chosen == '6':
-            sui.createmenu([
-                'Soon'
-            ])
 
         elif chosen == '7':
             return
