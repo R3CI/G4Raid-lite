@@ -9,9 +9,29 @@
 # If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
 
 import os
+import sys
+import subprocess
 import webbrowser
 
+def checkpython():
+    v = sys.version_info
+    if v.major != 3 or v.minor < 11 or (v.major == 3 and v.minor == 12 and v.micro == 10):
+        print('[!] Bad Python version detected:', sys.version.split()[0])
+        print('[!] Install Python 3.12.7 and make sure to add it to PATH')
+        input('The software might NOT work properly, PRESS ENTER TO INGORE AND CONTINUE')
+
+def checkpip():
+    try:
+        subprocess.run(['pip', '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+    except:
+        print('[!] pip not found or broken')
+        print('[!] Reinstall Python 3.12.7 with pip and Add to PATH')
+        input('The software might NOT work properly, PRESS ENTER TO INGORE AND CONTINUE')
+
 os.system('cls')
+
+checkpython()
+checkpip()
 
 print('[*] Discord Support: https://discord.gg/spamming')
 print('[*] Github Repo: https://github.com/r3ci/g4spam')
