@@ -12,8 +12,10 @@
   <img src="https://img.shields.io/github/stars/R3CI/G4Spam?style=flat-square&color=5005ff">
   <img src="https://img.shields.io/github/license/R3CI/G4Spam?style=flat-square&color=5005ff">
   <img src="https://img.shields.io/github/issues/R3CI/G4Spam?style=flat-square&color=5005ff">
-  <img src="https://img.shields.io/github/v/release/R3CI/G4Spam?style=flat-square&color=5005ff">
-  <img src="https://img.shields.io/github/release-date/R3CI/G4Spam?style=flat-square&color=5005ff">
+  <img src="https://img.shields.io/github/languages/top/R3CI/G4Spam?style=flat-square&color=5005ff">
+  <img src="https://img.shields.io/github/repo-size/R3CI/G4Spam?style=flat-square&color=5005ff">
+  <img src="https://img.shields.io/github/last-commit/R3CI/G4Spam?style=flat-square&color=5005ff">
+  <img src="https://img.shields.io/github/commit-activity/m/R3CI/G4Spam?style=flat-square&color=5005ff">
   <!-- <img src="https://img.shields.io/badge/CLICKME-90EE90?style=flat-square&logo=Youtube&label=Tutorial&cacheSeconds=5&link=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJEpa3RBnn_I"> -->
 </p>
 
@@ -29,10 +31,6 @@
   <img src="https://api.star-history.com/svg?repos=R3CI/G4Spam&type=Date&theme=dark">
 </p>
 
-<p align="center">
-  <img src="https://repobeats.axiom.co/api/embed/e999038a6ca21d17aa45a3bdb0578f607e14f47c.svg">
-</p>
-  
 <div align="center">
 
 This repository is intended for educational purposes only.  
