@@ -44,8 +44,8 @@ class suppliers:
             ])
             chosen = sui.input('Option', str)
 
-            if chosen == '1':   webbrowser.open('https://www.tokenu.net?ref=r3ci')
-            elif chosen == '2': webbrowser.open('https://www.vital-proxies.com/?ref=m3dm062i')
+            if chosen == '1':   webbrowser.open('https://www.vital-proxies.com/?ref=m3dm062i')
+            elif chosen == '2': webbrowser.open('https://dataimpulse.com/?aff=171985')
             else:               suppliers.menu()
 
         elif chosen == '6':
