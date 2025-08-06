@@ -28,7 +28,7 @@ Fixing pip:
   * Click Install
 
 3. Running g4spam
-* Double click RUN.PY
+* Double click main.py
 * Wait until the g4spam menu appears
 
 4. Adding your tokens

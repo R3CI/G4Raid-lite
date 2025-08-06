@@ -49,6 +49,12 @@ while True:
 
     logger.log(f'G4Spam FREE has been launched over {launches} times, with {stars} stars on github! Thank you!')
     logger.log(f'Get FULL version on https://g4tools.top')
+    time.sleep(1)
+
+    webbrowser.open('https://discord.gg/spamming')
+    webbrowser.open('https://t.me/g4tool')
+    webbrowser.open('https://g4tools.top')
+    
     chosen = sui.input('Option', int)
     options = {
         1:  lambda: servermenu().menu(),

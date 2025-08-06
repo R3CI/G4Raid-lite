@@ -6,8 +6,6 @@
 from src import *
 from src.util.logger import logger
 from src.util.ui import ui
-
-from src.modules.servermenu.joiner import joiner
 from src.modules.servermenu.leaver import leaver
 
 class servermenu:
@@ -18,7 +16,7 @@ class servermenu:
 
     def menu(self):
         options = {
-            'Joiner (FREE)': joiner().menu,
+            'Joiner': lambda: self.ui.paidnotif(),
             'Leaver (FREE)': leaver().menu,
             'Is In Server': lambda: self.ui.paidnotif(),
         }

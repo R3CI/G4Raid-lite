@@ -9,6 +9,24 @@ import os
 import re
 import subprocess
 
+os.system('cls')
+print('[*] Discord Support: https://discord.gg/spamming')
+print('[*] Github Repo: https://github.com/r3ci/g4spam')
+print()
+v = sys.version_info
+if v.major != 3 or v.minor < 11 or (v.major == 3 and v.minor == 12 and v.micro == 10):
+    print('[!] Bad Python version detected:', sys.version.split()[0])
+    print('[!] Install Python 3.12.7 and make sure to add it to PATH')
+    input('The software might NOT work properly, PRESS ENTER TO INGORE AND CONTINUE')
+
+try:
+    subprocess.run(['pip', '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+except:
+    print('[!] pip not found or broken')
+    print('[!] Reinstall Python 3.12.7 with pip and Add to PATH')
+    input('The software might NOT work properly, PRESS ENTER TO INGORE AND CONTINUE')
+os.system('cls')
+
 try:
     import time
     from datetime import datetime as dt, timezone
@@ -35,6 +53,7 @@ try:
     
 except Exception as e:
     print('Installing modules...')
+    print('Please wait it can take some time')
     print('You can ignore the 2 line error messages')
     
     modules = [
@@ -53,14 +72,15 @@ except Exception as e:
     for module in modules:
         subprocess.run(['py', '-m', 'pip', 'install', '--force-reinstall', module], capture_output=True)
         subprocess.run(['python', '-m', 'pip', 'install', '--force-reinstall', module], capture_output=True)
+        print(f'Installed {module}')
     
     missing = re.search(r"No module named ['\"]([^'\"]+)['\"]", str(e))
     if missing:
         subprocess.run(['py', '-m', 'pip', 'install', '--force-reinstall', missing.group(1)], capture_output=True)
         subprocess.run(['python', '-m', 'pip', 'install', '--force-reinstall', missing.group(1)], capture_output=True)
+        print(f'Installed {missing.group(1)}')
     
-    print('Done. Restart script.')
-    print('IF THIS PRESISTS MAKE RUN FIXER.PY')
+    print('Done Restart script')
     input('Press Enter...')
     sys.exit()
 
