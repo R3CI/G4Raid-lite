@@ -1,93 +1,137 @@
-# This code is the property of R3CI.
-# Unauthorized copying, distribution, or use is prohibited.
-# Licensed under the GNU General Public License v3.0 (GPL-3.0).
-# For more details, visit https://github.com/R3CI/G4Spam
-
-# This code is not the best as i honestly dont care much about it its made to work well and i do not need it to be good code overall as i dont update this often
-# Only the paid version will get updates often this is a side thing nothing crazy
-# Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
-# If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
-
-import sys
-sys.dont_write_bytecode = True
-
+import os
+os.system('cls')
+os.system('title G4Spam FREE - launching...')
 from src import *
-from src.util.client import *
-from src.util.ui import ui
-from src.util.rpc import RPC
-from src.util.logger import logger
-from src.util.other import other
-from src.util.files import files; files.runtasks()
-from src.util.config import config; config()
-from src.modules import *
-logger = logger('Main')
-sui = ui('Main') 
+from src.utils.rpc import RPC
+from src.utils.console import console
+from src.utils.files import files; files.check(); files.guardtokens()
+from src.utils.config import get
+from src.utils.logging import logger
+from src.funcs import *
+console = console('Main')
 
-logger.log('Adding a launch to stats', True)
-other.addlaunch()
+time.sleep(0.5)
+console.cls()
+console.title('G4Spam - g4tools.top - discord.gg/spamming - Made by r3ci')
+console.printbanner()
 
-logger.log('Getting repo stars...', True)
-stars = other.getrepostars()
+if get.debug.enabled():
+    logger.info('Debug mode enabled', 'Config')
 
-logger.log('Getting launches...', True)
-launches = other.getlaunches()
+logger.info('Connecting accounts is PAID only!', 'Onliner')
 
-logger.log('Checking config...', True)
-config().check()
+time.sleep(1)
 
-logger.log(f'Connecting tokens is PAID only, this will result in bit worse bypassing', True)
+if get.proxies.enabled():
+    logger.info(f'PRXOIES are PAID ONLY! get paid on https://g4tools.top/g4spam if you want to use them', 'Config')
+    logger.info(f'Enter to continue', 'Config')
+    input('')
 
-logger.log('Finished starting G4Spam', True)
+if get.solver.enabled():
+    logger.info(f'SOLVER SUPPORT is PAID ONLY! get paid on https://g4tools.top/g4spam if you want to use it', 'Config')
+    logger.info(f'Enter to continue', 'Config')
+    input('')
 
+page = 1
 while True:
-    RPC.update('In main menu')
-    sui.title(f'G4Spam FREE ({launches}) - github.com/R3CI/G4Spam ({stars}) - discord.gg/spamming - Made by r3ci')
-    sui.cls()
-    sui.banner()
-    sui.bar()
-    sui.menu()
+    console.title('G4Spam - g4tools.top - discord.gg/spamming - Made by r3ci')
+    console.cls()
+    console.printbanner()
+    console.printbar(len(files.gettokens()), len(files.getproxies()))
+    console.printmenu(page)
+    logger.info(f'Get full on https://g4tools.top')
+    logger.info(f'G4Spam FREE made by r3ci <3')
 
-    logger.log(f'G4Spam FREE has been launched over {launches} times, with {stars} stars on github! Thank you!')
-    logger.log(f'Get FULL version on https://g4tools.top')
-    time.sleep(1)
+    choice = console.input('Option', int)
 
-    webbrowser.open('https://discord.gg/spamming')
-    webbrowser.open('https://t.me/g4tool')
-    webbrowser.open('https://g4tools.top')
-    
-    chosen = sui.input('Option', int)
+    if choice == 20:
+        page += 1
+        continue
+
+    elif choice == 39:
+        page -= 1
+        continue
+
+    elif choice == 40:
+        page += 1
+        continue
+
+    elif choice == 60:
+        page -= 1
+        continue
+
     options = {
-        1:  lambda: servermenu().menu(),
-        2:  lambda: tokenmenu().menu(),
-        3:  lambda: spammingmenu().menu(),
-        4:  lambda: bypassmenu().menu(),
-        5:  lambda: vcmenu().menu(),
-        6:  lambda: funnymenu().menu(),
-        7:  lambda: exploitmenu().menu(),
-        8:  lambda: massreportmenu().menu(),
-        9:  lambda: logger.log('This is a placeholder'),
-        10: lambda: logger.log('This is a placeholder'),
-        11: lambda: sui.paidnotif(),
-        12: lambda: sui.paidnotif(),
-        13: lambda: logger.log('This is a placeholder'),
-        14: lambda: logger.log('This is a placeholder'),
-        15: lambda: scrapingmenu().menu(),
-        16: lambda: adminmenu().menu(),
-        17: lambda: proxymenu().menu(),
-        18: lambda: webhookmenu().menu(),
-        19: lambda: suppliers.menu(),
-        20: lambda: sys.exit(0),
+        1: joiner().menu,
+        2: leaver().menu,
+        3: serverchecker().menu,
+        4: channelchecker().menu,
+        5: console.paidnotif(),
+        6: channelspammer().menu,
+        7: console.paidnotif(),
+        8: console.paidnotif(),
+        9: lambda: logger.info('This is a placeholder', 'Menu'),
+        10: lambda: logger.info('This is a placeholder', 'Menu'),
+        11: checker().menu,
+        12: console.paidnotif(),
+        13: console.paidnotif(),
+        14: console.paidnotif(),
+        15: console.paidnotif(),
+        16: console.paidnotif(),
+        17: invitechecker().menu,
+        18: inviteinfo().menu,
+        19: lambda: logger.info('Not implemented yet', 'Menu'),
+        #NEXT PAGE
+        21: reactionbypass().menu,
+        22: console.paidnotif(),
+        23: lambda: logger.info('Not implemented yet', 'Menu'),
+        24: console.paidnotif(),
+        25: console.paidnotif(),
+        26: console.paidnotif(),
+        27: console.paidnotif(),
+        28: lambda: logger.info('This is a placeholder', 'Menu'),
+        29: lambda: logger.info('This is a placeholder', 'Menu'),
+        30: lambda: logger.info('This is a placeholder', 'Menu'),
+        31: console.paidnotif(),
+        32: lambda: logger.info('Not implemented yet', 'Menu'),
+        33: console.paidnotif(),
+        34: lambda: logger.info('This is a placeholder', 'Menu'),
+        35: lambda: logger.info('This is a placeholder', 'Menu'),
+        36: console.paidnotif(),
+        37: console.paidnotif(),
+        38: console.paidnotif(),
+        #PREV PAGE
+        #NEXT PAGE
+        41: console.paidnotif(),
+        42: lambda: logger.info('Not implemented yet', 'Menu'),
+        43: console.paidnotif(),
+        44: lambda: logger.info('This is a placeholder', 'Menu'),
+        45: lambda: logger.info('This is a placeholder', 'Menu'),
+        46: lambda: logger.info('This is a placeholder', 'Menu'),
+        47: lambda: logger.info('This is a placeholder', 'Menu'),
+        48: lambda: logger.info('This is a placeholder', 'Menu'),
+        49: lambda: logger.info('This is a placeholder', 'Menu'),
+        50: lambda: logger.info('This is a placeholder', 'Menu'),
+        51: lambda: logger.info('This is a placeholder', 'Menu'),
+        52: lambda: logger.info('This is a placeholder', 'Menu'),
+        53: lambda: logger.info('This is a placeholder', 'Menu'),
+        54: lambda: logger.info('This is a placeholder', 'Menu'),
+        55: lambda: logger.info('This is a placeholder', 'Menu'),
+        56: lambda: logger.info('Not implemented yet', 'Menu'),
+        57: lambda: logger.info('Not implemented yet', 'Menu'),
+        58: lambda: logger.info('This is a placeholder', 'Menu'),
+        59: lambda: logger.info('This is a placeholder', 'Menu'),
+        #PREV PAGE
+
     }
 
-    if chosen in options:
+    if choice in options:
         try:
-            options[chosen]()
+            options[choice]()
             
-        except Exception as error:
-            logger.error('Failed to run', error)
-
+        except Exception as e:
+            logger.error(f'Failed to run {str(choice)} » {str(e)}')
     else:
-        logger.log('Invalid option')
+        logger.error(f'Invalid option » {str(choice)}')
 
-    logger.log('Enter to continue')
+    logger.info('Finished running option', 'Main')
     input('')
