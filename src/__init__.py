@@ -8,79 +8,29 @@
 # Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
 # If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
 
+import sys
+import webbrowser
+import os
+import re
+import time
+from tkinter.filedialog import askopenfilename, askdirectory
+from tkinter import ttk, Frame, Tk, filedialog, messagebox
+
+webbrowser.open('https://g4tools.top')
+webbrowser.open('https://discord.gg/spamming')
+webbrowser.open('https://r3ci.dev')
+
 try:
-    import sys
-    import os
-    import time
-    import copy
-    import uuid
-    import httpx
-    import json
-    import socket
-    import base64
-    import string
-    import random
-    from tkinter import Tk, filedialog, messagebox
-    from curl_cffi import exceptions as cfex
-    import ctypes
-    import re
-    import traceback
-    import threading as threadinglib
-    import webbrowser
-    import curl_cffi as curlcffi_
     from pypresence import Presence
-    from curl_cffi import requests as curlcffi
-    from datetime import datetime as dt, timedelta, timezone
-    from tkinter import ttk, Frame
-    from urllib.parse import quote
-    from tkinter.filedialog import askopenfilename, askdirectory
-    from typing import List, Dict, Optional, Tuple, Union, NamedTuple
-    from collections import defaultdict, namedtuple
-
-except ImportError:
-    import subprocess, sys, os
-    libs = [
-        'httpx',
-        'curl_cffi',
-        'pypresence',
-        'datetime',
-    ]
-    
-    os.system('python -m pip install --upgrade pip')
-    subprocess.run([sys.executable, '-m', 'pip', 'install', '--upgrade', 'pip'])
-    for lib in libs:
-        os.system(f'python -m pip install --upgrade {lib}')
-        subprocess.run([sys.executable, '-m', 'pip', 'install', '--upgrade', lib])
-    import sys
-    import os
-    import time
-    import copy
-    import uuid
-    import httpx
-    import json
-    import socket
-    import base64
-    import string
-    import random
-    from tkinter import Tk, filedialog, messagebox
-    from curl_cffi import exceptions as cfex
-    import ctypes
-    import re
-    import traceback
-    import threading as threadinglib
-    import webbrowser
-    import curl_cffi as curlcffi_
+except:
+    os.system('pip install pypresence')
     from pypresence import Presence
-    from curl_cffi import requests as curlcffi
-    from datetime import datetime as dt, timedelta, timezone
-    from tkinter import ttk, Frame
-    from urllib.parse import quote
-    from tkinter.filedialog import askopenfilename, askdirectory
-    from typing import List, Dict, Optional, Tuple, Union, NamedTuple
-    from collections import defaultdict, namedtuple
 
-    input('Please run again!')
-os.system('python -m pip install --upgrade curl_cffi')
+try:
+    from datetime import datetime as dt
+except:
+    os.system('pip install datetime')
+    from datetime import datetime as dt
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'

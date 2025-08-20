@@ -15,7 +15,7 @@ os.system('title G4Spam FREE - launching...')
 from src import *
 from src.utils.rpc import RPC
 from src.utils.console import console
-from src.utils.files import files; files.check(); files.guardtokens()
+from src.utils.files import files; files.check()
 from src.utils.config import get
 from src.utils.printing import printer
 console = console('Main')
@@ -35,7 +35,7 @@ while True:
     console.title('G4Spam - g4tools.top - discord.gg/spamming - Made by r3ci')
     console.cls()
     console.printbanner()
-    console.printbar(len(files.gettokens()), len(files.getproxies()))
+    console.printbar(0, 0)
     console.printmenu(page)
     printer.info(f'Get FULL on https://g4tools.top')
     printer.info(f'G4Spam FREE made by r3ci <3')

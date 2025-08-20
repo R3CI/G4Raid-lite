@@ -205,7 +205,7 @@ class console:
             close(root)
 
         def ongetpaid():
-            webbrowser.open('https://g4tools.top/g4spam')
+            webbrowser.open('https://g4tools.top')
             close(root)
 
         root = Tk()
