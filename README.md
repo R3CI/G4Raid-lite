@@ -1,5 +1,5 @@
 <div align="center">
-⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐
+⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐ 
   
 ❤️❤️ Thanks to all the people that star this repo ❤️❤️
 </div>

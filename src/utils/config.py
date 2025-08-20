@@ -8,7 +8,6 @@
 # Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
 # If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
 
-
 from src import *
 
 class tomlparser:
