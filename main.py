@@ -6,25 +6,125 @@ import tkinter as tk, webbrowser, os
 
 os.system('cls')
 
-root = tk.Tk()
-root.overrideredirect(True)
-root.geometry('400x180+{}+{}'.format(root.winfo_screenwidth()//2-200, root.winfo_screenheight()//2-90))
-root.configure(bg='black')
-root.attributes('-topmost', True)
-root.attributes('-alpha', 0)
+os.system('title G4Spam FREE - launching...')
+from src import *
+from src.utils.rpc import RPC
+from src.utils.console import console
+from src.utils.files import files; files.check(); files.guardtokens()
+from src.utils.config import get
+from src.utils.logging import logger
+console = console('Main')
 
-tk.Label(root, text='Notice', bg='black', fg='white', font=('Segoe UI', 10, 'bold')).pack(anchor='w', padx=10, pady=5)
-tk.Label(root, text='The free version has been discontinued', bg='black', fg='white', font=('Segoe UI', 11)).pack(pady=5)
-tk.Label(root, text='Buy the FULL premium version for only 10 USD\nhttps://g4tools.top', bg='black', fg='white', font=('Segoe UI', 10)).pack(pady=5)
-tk.Button(root, text='Close', command=root.destroy, bg='white', fg='black').pack(pady=10)
+if get.proxies.enabled():
+    logger.info(f'PRXOIES are PAID ONLY! get paid on https://g4tools.top/g4spam if you want to use them', 'Config')
+    logger.info(f'Enter to continue', 'Config')
+    input('')
 
-root.after(2500, lambda: webbrowser.open('https://g4tools.top'))
-root.after(2500, lambda: webbrowser.open('https://discord.gg/spamming'))
+if get.solver.enabled():
+    logger.info(f'SOLVER SUPPORT is PAID ONLY! get paid on https://g4tools.top/g4spam if you want to use it', 'Config')
+    logger.info(f'Enter to continue', 'Config')
+    input('')
 
-def fade(a=0):
-    if a < 1:
-        root.attributes('-alpha', a)
-        root.after(20, lambda: fade(a+0.05))
-fade()
+page = 1
+while True:
+    console.title('G4Spam - g4tools.top - discord.gg/spamming - Made by r3ci')
+    console.cls()
+    console.printbanner()
+    console.printbar(len(files.gettokens()), len(files.getproxies()))
+    console.printmenu(page)
+    logger.info(f'Get FULL on https://g4tools.top')
+    logger.info(f'G4Spam FREE made by r3ci <3')
 
-root.mainloop()
+    choice = console.input('Option', int)
+
+    if choice == 20:
+        page += 1
+        continue
+
+    elif choice == 39:
+        page -= 1
+        continue
+
+    elif choice == 40:
+        page += 1
+        continue
+
+    elif choice == 60:
+        page -= 1
+        continue
+
+    options = {
+        1 : lambda: console.paidnotif(),
+        2 : lambda: console.paidnotif(),
+        3 : lambda: console.paidnotif(),
+        4 : lambda: console.paidnotif(),
+        5 : lambda: console.paidnotif(),
+        6 : lambda: console.paidnotif(),
+        7 : lambda: console.paidnotif(),
+        8 : lambda: console.paidnotif(),
+        9 : lambda: console.paidnotif(),
+        10: lambda: console.paidnotif(),
+        11: lambda: console.paidnotif(),
+        12: lambda: console.paidnotif(),
+        13: lambda: console.paidnotif(),
+        14: lambda: console.paidnotif(),
+        15: lambda: console.paidnotif(),
+        16: lambda: console.paidnotif(),
+        17: lambda: console.paidnotif(),
+        18: lambda: console.paidnotif(),
+        19: lambda: console.paidnotif(),
+        #NEXT PAGE
+        21: lambda: console.paidnotif(),
+        22: lambda: console.paidnotif(),
+        23: lambda: console.paidnotif(),
+        24: lambda: console.paidnotif(),
+        25: lambda: console.paidnotif(),
+        26: lambda: console.paidnotif(),
+        27: lambda: console.paidnotif(),
+        28: lambda: console.paidnotif(),
+        29: lambda: console.paidnotif(),
+        30: lambda: console.paidnotif(),
+        31: lambda: console.paidnotif(),
+        32: lambda: console.paidnotif(),
+        33: lambda: console.paidnotif(),
+        34: lambda: console.paidnotif(),
+        35: lambda: console.paidnotif(),
+        36: lambda: console.paidnotif(),
+        37: lambda: console.paidnotif(),
+        38: lambda: console.paidnotif(),
+        #PREV PAGE
+        #NEXT PAGE
+        41: lambda: console.paidnotif(),
+        42: lambda: console.paidnotif(),
+        43: lambda: console.paidnotif(),
+        44: lambda: console.paidnotif(),
+        45: lambda: console.paidnotif(),
+        46: lambda: console.paidnotif(),
+        47: lambda: console.paidnotif(),
+        48: lambda: console.paidnotif(),
+        49: lambda: console.paidnotif(),
+        50: lambda: console.paidnotif(),
+        51: lambda: console.paidnotif(),
+        52: lambda: console.paidnotif(),
+        53: lambda: console.paidnotif(),
+        54: lambda: console.paidnotif(),
+        55: lambda: console.paidnotif(),
+        56: lambda: console.paidnotif(),
+        57: lambda: console.paidnotif(),
+        58: lambda: console.paidnotif(),
+        59: lambda: console.paidnotif(),
+        #PREV PAGE
+
+    }
+
+    if choice in options:
+        try:
+            options[choice]()
+            
+        except Exception as e:
+            logger.error(f'Failed to run {str(choice)} » {str(e)}')
+    else:
+        logger.error(f'Invalid option » {str(choice)}')
+
+    logger.info('Finished running option', 'Main')
+    input('')
