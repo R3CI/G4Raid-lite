@@ -20,16 +20,6 @@ from src.utils.config import get
 from src.utils.printing import printer
 console = console('Main')
 
-if get.proxies.enabled():
-    printer.info(f'PRXOIES are PAID ONLY! get paid on https://g4tools.top/g4spam if you want to use them', 'Config')
-    printer.info(f'Enter to continue', 'Config')
-    input('')
-
-if get.solver.enabled():
-    printer.info(f'SOLVER SUPPORT is PAID ONLY! get paid on https://g4tools.top/g4spam if you want to use it', 'Config')
-    printer.info(f'Enter to continue', 'Config')
-    input('')
-
 page = 1
 while True:
     console.title('G4Spam - g4tools.top - discord.gg/spamming - Made by r3ci')
