@@ -20,17 +20,23 @@ webbrowser.open('https://g4tools.top')
 webbrowser.open('https://discord.gg/spamming')
 webbrowser.open('https://r3ci.dev')
 
+flag = False
+
 try:
     from pypresence import Presence
 except:
     os.system('pip install pypresence')
-    from pypresence import Presence
+    flag = True
 
 try:
     from datetime import datetime as dt
 except:
     os.system('pip install datetime')
-    from datetime import datetime as dt
+    flag = True
+
+if flag:
+    input('please open up the script again')
+    exit()
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
