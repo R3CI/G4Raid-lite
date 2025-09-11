@@ -21,7 +21,6 @@ webbrowser.open('https://discord.gg/spamming')
 webbrowser.open('https://r3ci.dev')
 
 flag = False
-
 try:
     from pypresence import Presence
 except:
