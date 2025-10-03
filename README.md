@@ -1,4 +1,6 @@
 <div align="center">
+⭐ 100 stars = SUPRISE ⭐ 
+  
 ⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐ 
   
 ❤️❤️ Thanks to all the people that star this repo ❤️❤️
