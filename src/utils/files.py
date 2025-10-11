@@ -1,13 +1,4 @@
-# This code is the property of R3CI.
-# Unauthorized copying, distribution, or use is prohibited.
-# Licensed under the GNU General Public License v3.0 (GPL-3.0).
-# For more details, visit https://github.com/R3CI/G4Spam
-
-# This code is not the best as i honestly dont care much about it its made to work well and i do not need it to be good code overall as i dont update this often
-# Only the paid version will get updates often this is a side thing nothing crazy
-# Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
-# If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
-
+import os
 from src import *
 from src.utils.printing import printer
 
@@ -16,27 +7,25 @@ class files:
     def check():
         filestomake = [
             'data',
-            'data\\scrapes',
-            'data\\tokenchecker',
-            'data\\stats'
+            'data/scrapes',
+            'data/tokenchecker',
+            'data/stats'
         ]
 
         folderstomake = [
-            'data\\tokens.txt',
-            'data\\proxies.txt'
+            'data/tokens.txt',
+            'data/proxies.txt'
         ]
 
         for path in filestomake:
             try:
                 if not os.path.exists(path):
                     os.makedirs(path)
-
             except PermissionError as e:
-                printer.error(f'Permission denied creating files/directories, please move g4spam to a different place desktop/own folder best » {e}')
+                printer.error(f'Permission denied creating directories: {e}')
                 input('')
-
             except Exception as e:
-                printer.error(f'Error creating files » {e}')
+                printer.error(f'Error creating directories: {e}')
                 input('')
         
         for path in folderstomake:
@@ -44,33 +33,39 @@ class files:
                 if not os.path.exists(path):
                     with open(path, 'w') as f:
                         f.write('')
-    
             except PermissionError as e:
-                printer.error(f'Permission denied creating files/directories, please move g4spam to a different place desktop/own folder best » {e}')
+                printer.error(f'Permission denied creating files: {e}')
                 input('')
-
             except Exception as e:
-                printer.error(f'Error creating files » {e}')
+                printer.error(f'Error creating files: {e}')
                 input('')
 
+    @staticmethod
     def choosefile():
-        root = Tk()
-        root.withdraw()
-        root.attributes('-topmost', True)
-        path = filedialog.askopenfilename(
-            title='Select a file',
-            filetypes=[
-                ('All files', '*.*'),
-            ]
-        )
-        root.destroy()
+        printer.info('File selection not available in Termux', 'System')
+        path = input('Enter file path manually: ')
         return path
 
+    @staticmethod
     def choosefolder():
-        root = Tk()
-        root.withdraw()
-        root.attributes('-topmost', True)
-        path = filedialog.askdirectory(title='Select a folder')
-        root.destroy()
+        printer.info('Folder selection not available in Termux', 'System')
+        path = input('Enter folder path manually: ')
         return path
 
+    @staticmethod
+    def gettokens():
+        try:
+            with open('data/tokens.txt', 'r') as f:
+                tokens = [line.strip() for line in f if line.strip()]
+            return tokens
+        except:
+            return []
+
+    @staticmethod
+    def getproxies():
+        try:
+            with open('data/proxies.txt', 'r') as f:
+                proxies = [line.strip() for line in f if line.strip()]
+            return proxies
+        except:
+            return []
