@@ -1,5 +1,5 @@
 <div align="center">
-⭐ 150 stars = G4Raid-FREE UP AND MENTAINED AGAIN ⭐ 
+⭐ 115 stars = G4Raid-FREE UP AND MENTAINED AGAIN ⭐ 
   
 ⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐ 
   
