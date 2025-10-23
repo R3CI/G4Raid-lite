@@ -1,6 +1,4 @@
 <div align="center">
-⭐ 115 stars = G4Raid UP AND MENTAINED AGAIN ⭐ 
-  
 ⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐ 
   
 ❤️❤️ Thanks to all the people that star this repo ❤️❤️
