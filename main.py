@@ -20,36 +20,17 @@ from src.utils.config import get
 from src.utils.printing import printer
 console = console('Main')
 
-page = 1
 while True:
     console.title('G4Lite - g4tools.cc - discord.gg/spamming - Made by r3ci')
     console.cls()
     console.printbanner()
     console.printbar(0, 0)
-    console.printmenu(page)
-    printer.info(f'Get FULL on https://g4tools.top')
-    printer.info(f'G4Spam FREE made by r3ci <3')
+    console.printmenu()
+    printer.info(f'Get FULL on https://g4tools.cc')
+    printer.info(f'G4Raid-lite made by r3ci <3')
 
     choice = console.input('Option', int)
-
-    if choice == 20:
-        page += 1
-        continue
-
-    elif choice == 39:
-        page -= 1
-        continue
-
-    elif choice == 40:
-        page += 1
-        continue
-
-    elif choice == 60:
-        page -= 1
-        continue
-
-    else:
-        console.runchooser()
+    console.runchooser()
     
     printer.info('Finished running option', 'Main')
     input('')
