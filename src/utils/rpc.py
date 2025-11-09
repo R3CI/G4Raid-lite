@@ -16,43 +16,42 @@ class RPC:
     def __init__(self):
         try:
             smalltext = f'Tokens » {len(files.gettokens())} Proxies » {len(files.getproxies())}'
-            self.client_id = '1383168674277363784'
-            self.rpc = Presence(self.client_id)
+            self.clientid = '1430609793436876820'
+            self.rpc = Presence(self.clientid)
             self.rpc.connect()
             self.rpc.update(
                 state='discord.gg/spamming',
-                details=f'G4Tools.TOP',
-                start=time.time(),
+                details='Using G4Raid',
+                start=int(time.time()),
                 large_image='smalllogorounded',
                 large_text='discord.gg/spamming',
                 small_image='folder',
                 small_text=smalltext,
                 buttons=[
                     {'label': 'Join Discord', 'url': 'https://discord.gg/spamming'},
-                    {'label': 'Get G4Spam for FREE', 'url': 'https://github.com/R3CI/G4Spam'}
+                    {'label': 'Get G4Raid', 'url': 'https://g4tools.cc'}
                 ]
             )
-        except:
+        except Exception as e:
             pass
-
+    
     def update(self, details):
         try:
             smalltext = f'Tokens » {len(files.gettokens())} Proxies » {len(files.getproxies())}'
             self.rpc.update(
-                state=f'Simply the best',
-                details=details,
-                start=time.time(),
+                state=details,
+                details='Using G4FriendAdvertiser',
+                start=int(time.time()),
                 large_image='smalllogorounded',
                 large_text='discord.gg/spamming',
                 small_image='folder',
                 small_text=smalltext,
                 buttons=[
                     {'label': 'Join Discord', 'url': 'https://discord.gg/spamming'},
-                    {'label': 'Get G4Spam for FREE', 'url': 'https://github.com/R3CI/G4Spam'}
+                    {'label': 'Get G4Raid', 'url': 'https://g4tools.cc'}
                 ]
-
             )
-        except:
+        except Exception as e:
             pass
 
 RPC = RPC()
