@@ -16,8 +16,9 @@ import time
 from tkinter.filedialog import askopenfilename, askdirectory
 from tkinter import ttk, Frame, Tk, filedialog, messagebox
 
-webbrowser.open('https://g4tools.top')
+webbrowser.open('https://g4tools.cc')
 webbrowser.open('https://discord.gg/spamming')
+webbrowser.open('https://t.me/g4tool')
 webbrowser.open('https://r3ci.dev')
 
 flag = False
