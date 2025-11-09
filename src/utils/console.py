@@ -50,73 +50,32 @@ class console:
 
     def printbanner(self):
         banner = fr'''{co.main}
-   ________ __ _____                     
-  / ____/ // // ___/____  ____ _____ ___ 
- / / __/ // /_\__ \/ __ \/ __ `/ __ `__ \
-/ /_/ /__  __/__/ / /_/ / /_/ / / / / / /
-\____/  /_/ /____/ .___/\__,_/_/ /_/ /_/ 
-                /_/                      ''' 
+   ________ __  ____        _     __
+  / ____/ // / / __ \____ _(_)___/ /
+ / / __/ // /_/ /_/ / __ `/ / __  / 
+/ /_/ /__  __/ _, _/ /_/ / / /_/ /  
+\____/  /_/ /_/ |_|\__,_/_/\__,_/   ''' 
         banner = self.center(banner, os.get_terminal_size().columns)
 
         print(banner)
 
-    def printmenu(self, page=1):
+    def printmenu(self):
         page1 = fr'''{co.reset}
-«https://g4tools.top»
-«FREE VERSION WITH LIMITED FEATURES BUY FULL ON https://g4tools.top»
+«GET FULL ON «https://g4tools.cc»»
 
+«SU» Token/Proxy Suppliers                                                  «SC» Scraping/Dumping
 «01» Server Joiner       «06» Channel Spammer      «11» Checker             «16» NickName Changer
-«02» Server Leaver       «07» MultiChannel Spamemr «12» Bio Changer         «17» Invite Checker  
-«03» Server Checker      «08» Reply spammer        «13» Avatar Changer      «18» Invite info     
-«04» Channel Checker     «09» None                 «14» ClanTag Changer     «19» Tutorials       
-«05» Anti Ban            «10» None                 «15» Displayname Changer «20» Next page       
+«02» Server Leaver       «07» MultiChannel Spamemr «12» Bio Changer         «17» Profile Reporter
+«03» Server Checker      «08» Reply spammer        «13» Avatar Changer      «18» Message Reporter
+«04» Channel Checker     «09» Chat Crasher         «14» ClanTag Changer     «19» Tutorials       
+«05» AuditLog Fucker     «10» Reaction Speller     «15» Displayname Changer «20» Verify Bypasses 
 '''     
         page1: str = self.center(text=page1, size=os.get_terminal_size().columns)
         
         for char in ['»', '«']:
             page1 = page1.replace(char, f'{co.main}{char}{co.reset}')
 
-
-
-        page2 = fr'''{co.reset}
-«https://g4tools.top»
-«FREE VERSION WITH LIMITED FEATURES BUY FULL ON https://g4tools.top»
-
-«21» Reaction Bypass     «26» Restorecord Bypass   «31» Chat Crasher        «36» Profile Reporter
-«22» Button Bypass       «27» AuthGG Bypass        «32» AuditLog Fucker     «37» Message Reporter
-«23» Button Menu Bypass  «28» None                 «33» Reaction Speller    «38» Token Filler    
-«24» Rule Bypass         «29» None                 «34» None                «39» Prev page       
-«25» Onboarding Bypass   «30» None                 «35» None                «40» Next page       
-'''     
-        page2: str = self.center(text=page2, size=os.get_terminal_size().columns)
-        
-        for char in ['»', '«']:
-            page2 = page2.replace(char, f'{co.main}{char}{co.reset}')
-
-        page3 = fr'''{co.reset}
-«https://g4tools.top»
-«FREE VERSION WITH LIMITED FEATURES BUY FULL ON https://g4tools.top»
-
-«41» Mass Send           «46» None                 «51» None                «56» ID Scraper      
-«42» Mass Call           «47» None                 «52» None                «57» Username Scraper
-«43» Mass Friend         «48» None                 «53» None                «58» None            
-«44» None                «49» None                 «54» None                «59» None            
-«45» None                «50» None                 «55» None                «60» Prev page       
-'''     
-        page3: str = self.center(text=page3, size=os.get_terminal_size().columns)
-        
-        for char in ['»', '«']:
-            page3 = page3.replace(char, f'{co.main}{char}{co.reset}')
-
-
-        if page == 1:
-            print(page1) 
-
-        elif page == 2:
-            print(page2)
-
-        elif page == 3:
-            print(page3)
+        print(page1)
 
     def input(self, text, expected=str):
         module = f'{co.main}[{co.reset}{self.module}{co.main}] ' if self.module else ''
