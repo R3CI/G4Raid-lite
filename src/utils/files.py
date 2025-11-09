@@ -32,7 +32,7 @@ class files:
                     os.makedirs(path)
 
             except PermissionError as e:
-                printer.error(f'Permission denied creating files/directories, please move g4spam to a different place desktop/own folder best » {e}')
+                printer.error(f'Permission denied creating files/directories, please move to a different place desktop/own folder best » {e}')
                 input('')
 
             except Exception as e:
@@ -46,7 +46,7 @@ class files:
                         f.write('')
     
             except PermissionError as e:
-                printer.error(f'Permission denied creating files/directories, please move g4spam to a different place desktop/own folder best » {e}')
+                printer.error(f'Permission denied creating files/directories, please move to a different place desktop/own folder best » {e}')
                 input('')
 
             except Exception as e:
