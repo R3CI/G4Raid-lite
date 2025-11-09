@@ -130,7 +130,7 @@ class console:
         self.cls()
         self.printbanner()
         if self.module != None:
-            self.title(f'G4Spam FREE - {self.module} - g4tools.top - discord.gg/spamming - Made by r3ci')
+            self.title(f'G4Raid-lite - {self.module} - g4tools.cc - discord.gg/spamming - Made by r3ci')
 
     def createmenu(self, options):
         toprint = []
@@ -164,7 +164,7 @@ class console:
             close(root)
 
         def ongetpaid():
-            webbrowser.open('https://g4tools.top')
+            webbrowser.open('https://g4tools.cc')
             close(root)
 
         root = Tk()
