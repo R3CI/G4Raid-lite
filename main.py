@@ -11,7 +11,7 @@
 import os
 os.system('cls')
 
-os.system('title G4Spam FREE - launching...')
+os.system('title G4Raid-lite - launching...')
 from src import *
 from src.utils.rpc import RPC
 from src.utils.console import console
@@ -22,7 +22,7 @@ console = console('Main')
 
 page = 1
 while True:
-    console.title('G4Spam - g4tools.top - discord.gg/spamming - Made by r3ci')
+    console.title('G4Lite - g4tools.cc - discord.gg/spamming - Made by r3ci')
     console.cls()
     console.printbanner()
     console.printbar(0, 0)
