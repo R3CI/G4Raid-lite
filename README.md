@@ -18,12 +18,6 @@
   <img src="https://img.shields.io/github/commit-activity/m/R3CI/G4Spam?style=flat-square&color=5005ff">
   <!-- <img src="https://img.shields.io/badge/CLICKME-90EE90?style=flat-square&logo=Youtube&label=Tutorial&cacheSeconds=5&link=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJEpa3RBnn_I"> -->
 </p>
-
-<div align="center">
-
-Why is this not open source? Simply cause there are skids that will just copy the code, second thing is that this is meant to be a preview only not a full product this is the lite version not full. In order to make it somewhat usable i have to set boundaries that i would not be able to set if this was open source.
-
-</div>
   
 <p align="center">
   <img src="https://i.imgur.com/gX00hf7.png">
