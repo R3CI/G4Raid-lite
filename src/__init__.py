@@ -25,13 +25,13 @@ flag = False
 try:
     from pypresence import Presence
 except:
-    os.system('pip install pypresence')
+    os.system('py -m pip install pypresence')
     flag = True
 
 try:
     from datetime import datetime as dt
 except:
-    os.system('pip install datetime')
+    os.system('py -m pip install datetime')
     flag = True
 
 if flag:
