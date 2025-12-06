@@ -8,29 +8,67 @@
 # Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
 # If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
 
-import os
-os.system('cls')
-
-os.system('title G4Raid-lite - launching...')
 from src import *
 from src.utils.rpc import RPC
 from src.utils.console import console
 from src.utils.files import files; files.check()
 from src.utils.config import get
-from src.utils.printing import printer
+from src.utils.logging import logger
+from src.funcs import *
 console = console('Main')
 
+time.sleep(0.5)
+console.cls()
+console.title('G4Raid - g4tools.cc - discord.gg/spamming - Made by r3ci')
+console.printbanner()
+
+if get.debug.enabled():
+    logger.info('Debug mode enabled', 'Config')
 while True:
-    console.title('G4Lite - g4tools.cc - discord.gg/spamming - Made by r3ci')
+    console.title('G4Raid-lite - g4tools.cc - discord.gg/spamming - Made by r3ci')
     console.cls()
     console.printbanner()
-    console.printbar(0, 0)
+    console.printbar(len(files.gettokens()), 0)
     console.printmenu()
-    printer.info(f'Get FULL on https://g4tools.cc')
-    printer.info(f'G4Raid-lite made by r3ci <3')
+    logger.info(f'G4Raid-lite made by r3ci <3')
 
-    choice = console.input('Option', int)
-    console.runchooser()
-    
-    printer.info('Finished running option', 'Main')
+    choice = console.input('Option', str)
+
+    options = {
+        'SU': suppliers().menu,
+        'su': suppliers().menu,
+        'SC': lambda: logger.paidonly(),
+        'sc': lambda: logger.paidonly(),
+        '1': lambda: logger.paidonly(),
+        '2': leaver().menu,
+        '3': serverchecker().menu,
+        '4': channelchecker().menu,
+        '5': lambda: logger.info('Will unpatch this soon', 'Menu'),
+        '6': channelspammer().menu,
+        '7': lambda: logger.paidonly(),
+        '8': lambda: logger.paidonly(),
+        '9': lambda: logger.paidonly(),
+        '10': lambda: logger.paidonly(),
+        '11': checker().menu,
+        '12': biochanger().menu,
+        '13': lambda: logger.paidonly(),
+        '14': lambda: logger.paidonly(),
+        '15': displaynamechanger().menu,
+        '16': nicknamechanger().menu,
+        '17': lambda: logger.paidonly(),
+        '18': lambda: logger.paidonly(),
+        '19': lambda: logger.info('Not implemented yet', 'Menu'),
+        '20': verifybypasses().menu,
+    }
+     
+    if choice in options:
+        try:
+            options[choice]()
+            
+        except Exception as e:
+            logger.error(f'Failed to run {str(choice)} » {str(e)}')
+    else:
+        logger.error(f'Invalid option » {str(choice)}')
+
+    logger.info('Finished running option', 'Main')
     input('')

@@ -1,42 +1,38 @@
-# This code is the property of R3CI.
-# Unauthorized copying, distribution, or use is prohibited.
-# Licensed under the GNU General Public License v3.0 (GPL-3.0).
-# For more details, visit https://github.com/R3CI/G4Spam
-
-# This code is not the best as i honestly dont care much about it its made to work well and i do not need it to be good code overall as i dont update this often
-# Only the paid version will get updates often this is a side thing nothing crazy
-# Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
-# If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
-
-import sys
-import webbrowser
-import os
-import re
+import sys, os
+os.system('cls')
+os.system('title G4Raid-lite - launching...')
 import time
+import copy
+import uuid
+import json
+import socket
+import base64
+import string
+import random
+import pyperclip
+from curl_cffi import exceptions as cfex
+import re
+import traceback
+import shutil
+import threading as threadinglib
+import webbrowser
+import requests
+import websocket
+import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import curl_cffi as curlcffi_
+from pypresence import Presence
+from curl_cffi import requests as curlcffi
+from datetime import datetime as dt, timedelta, timezone
+from urllib.parse import urlparse, quote
+from collections import defaultdict, namedtuple
+from tkinter.filedialog import askopenfilename, askdirectory
+from requests.cookies import RequestsCookieJar
+import json
+import urllib3
 from tkinter.filedialog import askopenfilename, askdirectory
 from tkinter import ttk, Frame, Tk, filedialog, messagebox
-
-webbrowser.open('https://g4tools.cc')
-webbrowser.open('https://discord.gg/spamming')
-webbrowser.open('https://t.me/g4tool')
-webbrowser.open('https://r3ci.dev')
-
-flag = False
-try:
-    from pypresence import Presence
-except:
-    os.system('py -m pip install pypresence')
-    flag = True
-
-try:
-    from datetime import datetime as dt
-except:
-    os.system('py -m pip install datetime')
-    flag = True
-
-if flag:
-    input('please open up the script again')
-    exit()
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
@@ -59,6 +55,7 @@ class co:
     black = rgb(69, 69, 69)
     white = rgb(255, 255, 255)
 
+    infolog = pink
     success = lime
     error = red
     locked = darkred
@@ -70,6 +67,9 @@ class co:
     captcha = cyan
     
     reset = '\033[0m'
+
+from src.utils.errorhandler import errorhandler
+sys.excepthook = errorhandler
 
 from src.utils.files import files
 files.check()

@@ -1,13 +1,3 @@
-# This code is the property of R3CI.
-# Unauthorized copying, distribution, or use is prohibited.
-# Licensed under the GNU General Public License v3.0 (GPL-3.0).
-# For more details, visit https://github.com/R3CI/G4Spam
-
-# This code is not the best as i honestly dont care much about it its made to work well and i do not need it to be good code overall as i dont update this often
-# Only the paid version will get updates often this is a side thing nothing crazy
-# Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
-# If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
-
 from src import *
 
 class tomlparser:
@@ -140,23 +130,23 @@ class config:
     def __init__(self):
         self.filename = 'config.toml'
         self.defaults = {
-            'rpc': {
+            'rpc [TURNING OFF ANVAIBLE IN PAID ONLY]': {
                 'enabled': (True, 'Make RPC visible'),
                 'showdata': (True, 'Shows how many tokens and proxies you have loaded')
             },
-            'proxies': {
+            'proxies [ANVAIBLE IN PAID ONLY]': {
                 'enabled': (False, 'Enable proxy support')
             },
-            'tokenonlining': {
+            'tokenonlining [ANVAIBLE IN PAID ONLY]': {
                 'enabled': (True, 'Onlines your tokens on startup DISABLING THIS MAY LEAD TO CAPTCHAS OR FLAGS'),
                 'delay': (0.1, 'Delay between onlines IF YOU USE A LOT TOKENS AND HAVE BAD INTERNET MAKE THIS HIGHER'),
                 'status': ('random', 'The status for the tokens (online, dnd, idle, invisible, random)')
             },
-            'solver': {
+            'solver [ANVAIBLE IN PAID ONLY]': {
+                'README': ('For solvers to work you need proxies / GOOD PROXIES', 'readme'),
                 'enabled': (False, 'Enable solver'),
                 'apikey': ('your-api-key-here', 'Your solver api key'),
-                'service': ('your-api-service', 'Your solver service (razorcap, teamai) IF YOU HAVE ANY MORE SOLVERS PLEASE DM ME AND I WILL ADD THEM MAKE SURE THEY ARE ACTUALY DISCORD WORKING THO'),
-                'INFO': ('razorcap - razorcap.live | teamai - discord.gg/recaptcha (DO $TICKET ON CMDS CHANNEL TO APPLY FOR A KEY)', 'Sites of the solvers'),
+                'service': ('your-solver-service', 'Your solver service'),
             },
             'debug': {
                 'enabled': (False, 'Enable debug mode'),
@@ -169,7 +159,7 @@ class config:
     def load(self):
         try:
             if os.path.exists(self.filename):
-                with open(self.filename, 'r', encoding='utf-8') as f:
+                with open(self.filename, 'r', encoding='utf-8', errors='ignore') as f:
                     content = f.read()
                 
                 if content.strip():
@@ -351,7 +341,7 @@ class config:
         try:
             backup_filename = self.filename + '.backup'
             temp_filename = self.filename + '.tmp'
-            with open(temp_filename, 'w', encoding='utf-8') as f:
+            with open(temp_filename, 'w', encoding='utf-8', errors='ignore') as f:
                 for section, values in self.defaults.items():
                     f.write(f'\n[{section}]\n')
                     for key, (default_value, comment) in values.items():
@@ -371,8 +361,8 @@ class config:
             
             if os.path.exists(self.filename):
                 try:
-                    with open(self.filename, 'r', encoding='utf-8') as src:
-                        with open(backup_filename, 'w', encoding='utf-8') as dst:
+                    with open(self.filename, 'r', encoding='utf-8', errors='ignore') as src:
+                        with open(backup_filename, 'w', encoding='utf-8', errors='ignore') as dst:
                             dst.write(src.read())
                 except Exception:
                     pass 
@@ -494,7 +484,7 @@ class get:
             return config().get('solver', 'apikey', 'your-api-key-here')
         
         def service() -> str:
-            return config().get('solver', 'service', 'vastcap')
+            return config().get('solver', 'service', 'teamai')
     
     class debug:
         def enabled() -> bool:

@@ -1,15 +1,7 @@
-# This code is the property of R3CI.
-# Unauthorized copying, distribution, or use is prohibited.
-# Licensed under the GNU General Public License v3.0 (GPL-3.0).
-# For more details, visit https://github.com/R3CI/G4Spam
-
-# This code is not the best as i honestly dont care much about it its made to work well and i do not need it to be good code overall as i dont update this often
-# Only the paid version will get updates often this is a side thing nothing crazy
-# Remember this is literary the only up to date FREE tool out on github all the other ones are old or skids from 2023
-# If you wana get more features with the cost of flgging ur stuff do but you will make ur tokens flagged
-
 from src import *
-from src.utils.printing import printer
+from src.utils.logging import logger
+
+Token = namedtuple('Token', ['email', 'password', 'token'])
 
 class files:
     @staticmethod
@@ -32,27 +24,64 @@ class files:
                     os.makedirs(path)
 
             except PermissionError as e:
-                printer.error(f'Permission denied creating files/directories, please move to a different place desktop/own folder best » {e}')
+                logger.error(f'Permission denied creating files/directories, please move G4Raid-lite to a different place desktop/own folder best » {e}')
                 input('')
 
             except Exception as e:
-                printer.error(f'Error creating files » {e}')
+                logger.error(f'Error creating files » {e}')
                 input('')
         
         for path in folderstomake:
             try:
                 if not os.path.exists(path):
-                    with open(path, 'w') as f:
+                    with open(path, 'w', encoding='utf-8', errors='ignore') as f:
                         f.write('')
     
             except PermissionError as e:
-                printer.error(f'Permission denied creating files/directories, please move to a different place desktop/own folder best » {e}')
+                logger.error(f'Permission denied creating files/directories, please move G4Raid-lite to a different place desktop/own folder best » {e}')
                 input('')
 
             except Exception as e:
-                printer.error(f'Error creating files » {e}')
+                logger.error(f'Error creating files » {e}')
                 input('')
 
+    @staticmethod
+    def gettokens():
+        tokens = []
+
+        try:
+            with open('data\\tokens.txt', 'r', encoding='utf-8', errors='ignore') as f:
+                lines = f.read().splitlines()
+                for line in lines:
+                    if not line.strip():
+                        continue
+
+                    coloncount = line.count(':')
+                    if coloncount == 1 or coloncount > 2:
+                        logger.error(f'Invalid token format the correct format is EMAIL:PASSWORD:TOKEN if this IS your format keep the token only as ur supplier is a idiot » {line}')
+
+                    parts = line.split(':', 2)
+                    if len(parts) == 3:
+                        email, password, token = parts
+                    else:
+                        email = None
+                        password = None
+                        token = parts[0]
+                    
+                    token = Token(email, password, token)
+                    tokens.append(token)
+                    random.shuffle(tokens)
+        
+        except PermissionError as e:
+            logger.error(f'Permission denied reading files/directories, please move G4Raid to a different place desktop/own folder best » {e}')
+            input('')
+
+        except Exception as e:
+            logger.error(f'Error reading files » {e}')
+            input('')
+
+        return tokens
+    
     def choosefile():
         root = Tk()
         root.withdraw()

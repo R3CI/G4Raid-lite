@@ -1,0 +1,22 @@
+
+[rpc [TURNING OFF ANVAIBLE IN PAID ONLY]]
+enabled = true  # Make RPC visible
+showdata = true  # Shows how many tokens and proxies you have loaded
+
+[proxies [ANVAIBLE IN PAID ONLY]]
+enabled = false  # Enable proxy support
+
+[tokenonlining [ANVAIBLE IN PAID ONLY]]
+enabled = true  # Onlines your tokens on startup DISABLING THIS MAY LEAD TO CAPTCHAS OR FLAGS
+delay = 0.1  # Delay between onlines IF YOU USE A LOT TOKENS AND HAVE BAD INTERNET MAKE THIS HIGHER
+status = "random"  # The status for the tokens (online, dnd, idle, invisible, random)
+
+[solver [ANVAIBLE IN PAID ONLY]]
+README = "For solvers to work you need proxies / GOOD PROXIES"  # readme
+enabled = false  # Enable solver
+apikey = "your-api-key-here"  # Your solver api key
+service = "your-solver-service"  # Your solver service
+
+[debug]
+enabled = false  # Enable debug mode
+pause = false  # Pause execution for debugging
