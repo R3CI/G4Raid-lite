@@ -20,7 +20,7 @@
 </p>
   
 <p align="center">
-  <img src="https://i.imgur.com/gX00hf7.png">
+  <img src="https://g4tools.cc/assets/WindowsTerminal_EaInPOtLgx.png">
 </p>
 
 <p align="center">
