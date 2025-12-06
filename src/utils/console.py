@@ -72,11 +72,11 @@ class console:
 «https://g4tools.cc»
 
 «SU» Token/Proxy Suppliers                                                  «SC» Scraping/Dumping
-«01» Server Joiner       «06» Channel Spammer      «11» Checker             «16» NickName Changer
-«02» Server Leaver       «07» MultiChannel Spamemr «12» Bio Changer         «17» Profile Reporter
-«03» Server Checker      «08» Reply spammer        «13» Avatar Changer      «18» Message Reporter
-«04» Channel Checker     «09» Chat Crasher         «14» ClanTag Changer     «19» Tutorials       
-«05» AuditLog Fucker     «10» Reaction Speller     «15» Displayname Changer «20» Verify Bypasses 
+«01» Server Joiner $     «06» Channel Spammer      «11» Checker             «16» NickName Changer
+«02» Server Leaver       «07» MultChanel Spammer $ «12» Bio Changer         «17» Profile Reporter $
+«03» Server Checker      «08» Reply spammer $      «13» Avatar Changer $    «18» Message Reporter $
+«04» Channel Checker     «09» Chat Crasher $       «14» ClanTag Changer $   «19» Tutorials       
+«05» AuditLog Fucker  $  «10» Reaction Speller $   «15» Displayname Changer «20» Verify Bypasses 
 '''     
         page1: str = self.center(text=page1, size=os.get_terminal_size().columns)
         
