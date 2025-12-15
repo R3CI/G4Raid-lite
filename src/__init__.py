@@ -1,38 +1,65 @@
 import sys, os
 os.system('cls')
 os.system('title G4Raid-lite - launching...')
-import time
-import copy
-import uuid
-import json
-import socket
-import base64
-import string
-import random
-import pyperclip
-from curl_cffi import exceptions as cfex
-import re
-import traceback
-import shutil
-import threading as threadinglib
-import webbrowser
-import requests
-import websocket
-import concurrent.futures
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import curl_cffi as curlcffi_
-from pypresence import Presence
-from curl_cffi import requests as curlcffi
-from datetime import datetime as dt, timedelta, timezone
-from urllib.parse import urlparse, quote
-from collections import defaultdict, namedtuple
-from tkinter.filedialog import askopenfilename, askdirectory
-from requests.cookies import RequestsCookieJar
-import json
-import urllib3
-from tkinter.filedialog import askopenfilename, askdirectory
-from tkinter import ttk, Frame, Tk, filedialog, messagebox
+import subprocess
+try:
+    import time
+    import copy
+    import uuid
+    import json
+    import socket
+    import base64
+    import string
+    import random
+    import pyperclip
+    from curl_cffi import exceptions as cfex
+    import re
+    import traceback
+    import shutil
+    import threading as threadinglib
+    import webbrowser
+    import requests
+    import websocket
+    import concurrent.futures
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    import curl_cffi as curlcffi_
+    from pypresence import Presence
+    from curl_cffi import requests as curlcffi
+    from datetime import datetime as dt, timedelta, timezone
+    from urllib.parse import urlparse, quote
+    from collections import defaultdict, namedtuple
+    from tkinter.filedialog import askopenfilename, askdirectory
+    from requests.cookies import RequestsCookieJar
+    import json
+    import urllib3
+    from tkinter.filedialog import askopenfilename, askdirectory
+    from tkinter import ttk, Frame, Tk, filedialog, messagebox
+except:
+    packages = [
+        'pyperclip',
+        'curl_cffi',
+        'requests',
+        'datetime',
+        'websocket-client',
+        'pypresence',
+        'urllib3'
+    ]
+
+    def install(pkg):
+        subprocess.check_call([sys.executable, '-m', 'pip', 'install', pkg])
+
+    for p in packages:
+        try:
+            __import__(p.replace('-', '_'))
+        except Exception:
+            install(p)
+
+    input('Run the script again')
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+webbrowser.open('https://g4tools.cc', autoraise=False)
+webbrowser.open('https://r3ci.dev', autoraise=False)
+webbrowser.open('https://discord.gg/spamming', autoraise=False)
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'

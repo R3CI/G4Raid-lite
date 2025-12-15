@@ -24,7 +24,6 @@ class checker:
         tok = client.token
         token_obj = self.tokenmap.get(tok)
         try:
-            client.cleanxcontent()
             while True:
                 r = client.sess.get(
                     f'https://discord.com/api/v9/users/@me/library',

@@ -24,15 +24,6 @@ class channelspammer:
     
     def spam(self, client: Client):
         try:
-            client.cleanxcontent()
-            client.addxcontent({
-                'location': 'chat_input'
-            })
-            if not client.cookiejar:
-                logger.infolog(f'{client.maskedtoken} » Getting cookies')
-                client.refreshcookies()
-                client.updatecookies(client.cookiejar, client.cookiestr)
-
             while True:
                 message = random.choice(self.messages)
 

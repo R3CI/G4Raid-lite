@@ -15,12 +15,6 @@ class channelchecker:
     
     def check(self, client: Client):
         try:
-            client.cleanxcontent()
-            if not client.cookiejar:
-                logger.infolog(f'{client.maskedtoken} » Getting cookies')
-                client.refreshcookies()
-                client.updatecookies(client.cookiejar, client.cookiestr)
-
             while True:
                 r = client.sess.get(
                     f'https://discord.com/api/v9/channels/{self.channelid}',
