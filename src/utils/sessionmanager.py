@@ -51,7 +51,7 @@ apibypassing = apibypassing_()
 cockjar, cockstr = apibypassing.getcookie(apibypassing.headers)
 
 class client:
-    # Before u complain its like this cause of skids lol
+    # Before u complain its like this cause of skids lol yes
     def __init__(self, token=None):
         self.token = token
         self.maskedtoken = token[:30] if token else None
