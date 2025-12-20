@@ -55,11 +55,11 @@ class client:
     def __init__(self, token=None):
         self.token = token
         self.maskedtoken = token[:30] if token else None
-        self.headers['cookie'] = cockstr
 
         self.sess = self.makesess()
         self.sess.cookies.update(cockjar)
         self.headers = copy.deepcopy(apibypassing.headers)
+        self.headers['cookie'] = cockstr
         self.settoken(token)
 
     def makesess(self):
