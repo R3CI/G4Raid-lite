@@ -38,6 +38,7 @@ except:
     packages = [
         'pyperclip',
         'curl_cffi',
+        'curl-cffi'
         'requests',
         'datetime',
         'websocket-client',
@@ -50,7 +51,7 @@ except:
 
     for p in packages:
         try:
-            __import__(p.replace('-', '_'))
+            __import__(p)
         except Exception:
             install(p)
 
@@ -59,7 +60,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 webbrowser.open('https://g4tools.cc', autoraise=False)
 webbrowser.open('https://r3ci.dev', autoraise=False)
-webbrowser.open('https://discord.gg/spamming', autoraise=False)
+webbrowser.open('https://discord.gg/spamming', autoraise=True)
 
 def rgb(r, g, b):
     return f'\033[38;2;{r};{g};{b}m'
