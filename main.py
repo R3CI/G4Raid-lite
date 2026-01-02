@@ -17,7 +17,6 @@ from src.utils.printing import printing, choicehandler
 from src.funcs import *
 console = console('Main')
 
-time.sleep(0.5)
 console.cls()
 console.title('G4Raid - g4tools.cc - discord.gg/spamming - Made by r3ci')
 console.printbanner()
