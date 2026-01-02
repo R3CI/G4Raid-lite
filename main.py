@@ -13,7 +13,7 @@ from src.utils.rpc import RPC
 from src.utils.console import console
 from src.utils.files import files; files.check()
 from src.utils.config import get
-from src.utils.logging import logger
+from src.utils.printing import printing, choicehandler
 from src.funcs import *
 console = console('Main')
 
@@ -22,53 +22,16 @@ console.cls()
 console.title('G4Raid - g4tools.cc - discord.gg/spamming - Made by r3ci')
 console.printbanner()
 
-if get.debug.enabled():
-    logger.info('Debug mode enabled', 'Config')
 while True:
     console.title('G4Raid-lite - g4tools.cc - discord.gg/spamming - Made by r3ci')
     console.cls()
     console.printbanner()
     console.printbar(len(files.gettokens()), 0)
     console.printmenu()
-    logger.info(f'G4Raid-lite made by r3ci <3')
+    printing.info(f'G4Raid-lite made by r3ci <3')
 
     choice = console.input('Option', str)
+    choicehandler()
 
-    options = {
-        'SU': suppliers().menu,
-        'su': suppliers().menu,
-        'SC': lambda: logger.paidonly(),
-        'sc': lambda: logger.paidonly(),
-        '1': lambda: logger.paidonly(),
-        '2': leaver().menu,
-        '3': serverchecker().menu,
-        '4': channelchecker().menu,
-        '5': lambda: logger.info('Will unpatch this soon', 'Menu'),
-        '6': channelspammer().menu,
-        '7': lambda: logger.paidonly(),
-        '8': lambda: logger.paidonly(),
-        '9': lambda: logger.paidonly(),
-        '10': lambda: logger.paidonly(),
-        '11': checker().menu,
-        '12': biochanger().menu,
-        '13': lambda: logger.paidonly(),
-        '14': lambda: logger.paidonly(),
-        '15': displaynamechanger().menu,
-        '16': nicknamechanger().menu,
-        '17': lambda: logger.paidonly(),
-        '18': lambda: logger.paidonly(),
-        '19': lambda: logger.info('Not implemented yet', 'Menu'),
-        '20': verifybypasses().menu,
-    }
-     
-    if choice in options:
-        try:
-            options[choice]()
-            
-        except Exception as e:
-            logger.error(f'Failed to run {str(choice)} » {str(e)}')
-    else:
-        logger.error(f'Invalid option » {str(choice)}')
-
-    logger.info('Finished running option', 'Main')
+    printing.info('Finished running option', 'Main')
     input('')

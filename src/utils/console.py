@@ -1,5 +1,5 @@
 from src import *
-from src.utils.logging import logger
+from src.utils.printing import printing
 
 class console:
     def __init__(self, module='Console'):
@@ -68,15 +68,15 @@ class console:
 
     def printmenu(self):
         page1 = fr'''{co.reset}
-«Using the lite version, buy paid to get all features (all payments supported & 15usd lifetime)»   
+«G4Raid-lite is no longer mentained! Only the paid version will get updates (all payments supported & 15usd lifetime)»   
 «https://g4tools.cc»
 
 «SU» Token/Proxy Suppliers                                                  «SC» Scraping/Dumping  
-«01» Server Joiner $     «06» Channel Spammer      «11» Checker             «16» NickName Changer  
-«02» Server Leaver       «07» MultChanel Spammer $ «12» Bio Changer         «17» Profile Reporter $
-«03» Server Checker      «08» Reply spammer $      «13» Avatar Changer $    «18» Message Reporter $
-«04» Channel Checker     «09» Chat Crasher $       «14» ClanTag Changer $   «19» Tutorials         
-«05» AuditLog Fucker  $  «10» Reaction Speller $   «15» Displayname Changer «20» Verify Bypasses   
+«01» Server Joiner       «06» Channel Spammer      «11» Checker             «16» NickName Changer  
+«02» Server Leaver       «07» MultChanel Spammer   «12» Bio Changer         «17» Profile Reporter  
+«03» Server Checker      «08» Reply spammer        «13» Avatar Changer      «18» Message Reporter  
+«04» Channel Checker     «09» Chat Crasher         «14» ClanTag Changer     «19» Tutorials         
+«05» AuditLog Fucker     «10» Reaction Speller     «15» Displayname Changer «20» Verify Bypasses   
 '''     
         page1: str = self.center(text=page1, size=os.get_terminal_size().columns)
         
@@ -102,7 +102,7 @@ class console:
                 if expected == str:
                     return result
                 else:
-                    logger.info('Input required please enter a value')
+                    printing.info('Input required please enter a value')
                     continue
 
             if expected == bool:
@@ -113,7 +113,7 @@ class console:
                     return False
                 
                 else:
-                    logger.info('Invalid input please enter y/yes/true or n/no/false')
+                    printing.info('Invalid input please enter y/yes/true or n/no/false')
                     continue
             
             if expected == str:
@@ -125,13 +125,13 @@ class console:
                 
             except ValueError:
                 if expected == int:
-                    logger.info('Please enter a whole number (eg 1 42 100)')
+                    printing.info('Please enter a whole number (eg 1 42 100)')
 
                 elif expected == float:
-                    logger.info('Please enter a decimal number (eg 1.5 3.14 10.0)')
+                    printing.info('Please enter a decimal number (eg 1.5 3.14 10.0)')
 
                 else:
-                    logger.info(f'Invalid format expected {expected.__name__}')
+                    printing.info(f'Invalid format expected {expected.__name__}')
                 continue
 
     def prep(self):

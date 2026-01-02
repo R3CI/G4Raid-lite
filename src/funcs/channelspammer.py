@@ -1,10 +1,8 @@
 from src import *
 from src.utils.files import files
 from src.utils.console import console
-from src.utils.threading import threading
 from src.utils.discord import discord
-from src.utils.logging import logger
-from src.utils.sessionmanager import client as Client
+from src.utils.printing import printing, choicehandler
 
 class channelspammer:
     def __init__(self):
@@ -21,58 +19,6 @@ class channelspammer:
         self.pinglen = 0
         self.tts = False
         self.delay = 0
-    
-    def spam(self, client: Client):
-        try:
-            while True:
-                message = random.choice(self.messages)
-
-                if self.dostring:
-                    message = f'{message} | {discord.getstring(self.stringlen)}'
-
-                if self.doemoji:
-                    message = f'{message} | {discord.getemoji(self.emojilen)}'
-
-                r = client.sess.post(
-                    f'https://discord.com/api/v9/channels/{self.channelid}/messages',
-                    headers=client.headers,
-                    json={
-                        'mobile_network_type': 'unknown',
-                        'content': f'# https://g4tools.cc\n{message}',
-                        'nonce': discord.getnonce(),
-                        'flags': 0
-                    }
-                )
-
-                if r.status_code == 200:
-                    logger.success(f'{client.maskedtoken} » Sent')
-
-                elif 'retry_after' in r.text:
-                    ratelimit = r.json().get('retry_after', 1.5)
-                    logger.ratelimit(f'{client.maskedtoken} » {ratelimit}s')
-                    discord.sleep(ratelimit)
-
-                elif 'Try again later' in r.text:
-                    logger.ratelimit(f'{client.maskedtoken} » 5s')
-                    discord.sleep(5)
-
-                elif 'Cloudflare' in r.text:
-                    logger.cloudflare(f'{client.maskedtoken} » 10s')
-                    discord.sleep(10)
-
-                else:
-                    e, etype = discord.errordatabase(r.text) 
-                    logger.error(f'{client.maskedtoken} » {e}')
-                    break
-                    
-                discord.sleep(self.delay)
-
-        except Exception as e:
-            logger.error(f'{client.maskedtoken} » {e}')
-
-    def run(self, token):
-        client = Client(token)
-        self.spam(client)
 
     def menu(self):
         self.console.prep()
@@ -89,35 +35,10 @@ class channelspammer:
 
         self.doping = self.console.input('Add @user pings? (random users)', bool)
         if self.doping:
-            logger.info('Pings are anvaible in the paid version only')
-            logger.info('Pings are anvaible in the paid version only')
-            logger.info('Pings are anvaible in the paid version only')
+            pass
 
-        if self.console.input('Use messages from a file', bool):
-            logger.info('Choose the file with ur messages');time.sleep(1)
-            path = files.choosefile()
-            if not os.path.exists(path):
-                logger.error('This file does not exist')
-                self.messages = [self.console.input('Message', str)]
-
-            else:
-                with open(path, 'r', encoding='utf-8', errors='ignore') as f:
-                    self.messages = f.read().splitlines()
-        else:
-            self.messages = [self.console.input('Message', str)]
+        self.messages = [self.console.input('Message', str)]
 
         self.tts = self.console.input('TTS', bool)
-        self.delay = self.console.input('Delay', float)
-        logger.info('No watermark is anvaible in the paid version only')
-        logger.info('No watermark is anvaible in the paid version only')
-        logger.info('No watermark is anvaible in the paid version only')
-
-        tokens = [token.token for token in files.gettokens()]
-            
-        threading(
-            func=self.run,
-            tokens=tokens,
-            delay=0
-        )
-
+        choicehandler()
         

@@ -1,56 +1,39 @@
 from src import *
 from src.utils.console import console
-from src.utils.logging import logger
+from src.utils.printing import choicehandler
 
 class verifybypasses:
     def __init__(self):
         self.console = console('Verify Bypasses')
     
     def reaction(self):
-        logger.paidonly()
+        choicehandler()
 
     def button(self):
-        logger.paidonly()
+        choicehandler()
 
     def rule(self):
-        logger.paidonly()
+        choicehandler()
 
     def onboarding(self):
-        logger.paidonly()
+        choicehandler()
 
     def restorecord(self):
-        logger.paidonly()
+        choicehandler()
 
     def authgg(self):
-        logger.paidonly()
+        choicehandler()
 
     def menu(self):
         menu = {
-            'Reaction Bypass $': self.reaction,
-            'Button Bypass $': self.button,
-            'Rule Btpass $': self.rule,
-            'Onboarding Bypass $': self.onboarding,
-            'Restorecord Bypass $': self.restorecord,
-            'Authgg Bypass $': self.authgg,
+            'Reaction Bypass': self.reaction,
+            'Button Bypass': self.button,
+            'Rule Btpass': self.rule,
+            'Onboarding Bypass': self.onboarding,
+            'Restorecord Bypass': self.restorecord,
+            'Authgg Bypass': self.authgg,
         }
 
         self.console.createmenu(menu)
         choice = self.console.input('Choice', int)
-
-        if choice == 1:
-            self.reaction()
-
-        elif choice == 2:
-            self.button()
-
-        elif choice == 3:
-            self.rule()
-
-        elif choice == 4:
-            self.onboarding()
-
-        elif choice == 5:
-            self.restorecord()
-        
-        elif choice == 6:
-            self.authgg()
+        choicehandler()

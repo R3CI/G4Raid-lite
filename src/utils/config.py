@@ -130,19 +130,19 @@ class config:
     def __init__(self):
         self.filename = 'config.toml'
         self.defaults = {
-            'rpc [TURNING OFF ANVAIBLE IN PAID ONLY]': {
+            'rpc': {
                 'enabled': (True, 'Make RPC visible'),
                 'showdata': (True, 'Shows how many tokens and proxies you have loaded')
             },
-            'proxies [ANVAIBLE IN PAID ONLY]': {
+            'proxies': {
                 'enabled': (False, 'Enable proxy support')
             },
-            'tokenonlining [ANVAIBLE IN PAID ONLY]': {
+            'tokenonlining': {
                 'enabled': (True, 'Onlines your tokens on startup DISABLING THIS MAY LEAD TO CAPTCHAS OR FLAGS'),
                 'delay': (0.1, 'Delay between onlines IF YOU USE A LOT TOKENS AND HAVE BAD INTERNET MAKE THIS HIGHER'),
                 'status': ('random', 'The status for the tokens (online, dnd, idle, invisible, random)')
             },
-            'solver [ANVAIBLE IN PAID ONLY]': {
+            'solver': {
                 'README': ('For solvers to work you need proxies / GOOD PROXIES', 'readme'),
                 'enabled': (False, 'Enable solver'),
                 'apikey': ('your-api-key-here', 'Your solver api key'),

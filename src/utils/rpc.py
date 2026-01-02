@@ -23,7 +23,7 @@ class RPC:
                     small_text=smalltext,
                     buttons=[
                         {'label': 'Join Discord', 'url': 'https://discord.gg/spamming'},
-                        {'label': 'Get G4Raid for FREE', 'url': 'https://github.com/r3ci/G4Raid'}
+                        {'label': 'Get G4Raid for FREE', 'url': 'https://github.com/r3ci/G4Raid-lite'}
                     ]
                 )
         except Exception as e:
@@ -46,7 +46,7 @@ class RPC:
                     small_text=smalltext,
                     buttons=[
                         {'label': 'Join Discord', 'url': 'https://discord.gg/spamming'},
-                        {'label': 'Get G4Raid for FREE', 'url': 'https://github.com/r3ci/G4Raid'}
+                        {'label': 'Get G4Raid for FREE', 'url': 'https://github.com/r3ci/G4Raid-lite'}
                     ]
                 )
         except Exception as e:

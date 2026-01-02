@@ -12,17 +12,12 @@ try:
     import string
     import random
     import pyperclip
-    from curl_cffi import exceptions as cfex
     import re
     import traceback
     import shutil
     import threading as threadinglib
     import webbrowser
     import requests
-    import websocket
-    import concurrent.futures
-    from concurrent.futures import ThreadPoolExecutor, as_completed
-    import curl_cffi as curlcffi_
     from pypresence import Presence
     from curl_cffi import requests as curlcffi
     from datetime import datetime as dt, timedelta, timezone
@@ -59,7 +54,6 @@ except:
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 webbrowser.open('https://g4tools.cc', autoraise=False)
-webbrowser.open('https://r3ci.dev', autoraise=False)
 webbrowser.open('https://discord.gg/spamming', autoraise=True)
 
 def rgb(r, g, b):
