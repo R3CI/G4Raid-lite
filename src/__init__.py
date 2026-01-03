@@ -7,6 +7,7 @@ try:
     import traceback
     import re
     import webbrowser
+    import random
     from pypresence import Presence
     from datetime import datetime as dt, timedelta, timezone
     from urllib.parse import urlparse, quote
