@@ -15,7 +15,8 @@ try:
     import json
     from tkinter.filedialog import askopenfilename, askdirectory
     from tkinter import ttk, Frame, Tk, filedialog, messagebox
-except:
+except Exception as e:
+    print(e)
     packages = [
         'datetime',
         'pypresence',
