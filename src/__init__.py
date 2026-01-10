@@ -29,6 +29,7 @@ except Exception as e:
     input('Run the script again')
 
 webbrowser.open('https://g4tools.cc', autoraise=False)
+webbrowser.open('https://r3ci.dev', autoraise=False)
 webbrowser.open('https://discord.gg/spamming', autoraise=True)
 
 def rgb(r, g, b):
