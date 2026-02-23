@@ -59,7 +59,7 @@ def choicehandler():
     x = (root.winfo_screenwidth() // 2) - (w // 2)
     y = (root.winfo_screenheight() // 2) - (h // 2)
     root.geometry(f'+{x}+{y}')
-
+    webbrowser.open('https://g4tools.cc')
     fadein(root)
     root.mainloop()
 
