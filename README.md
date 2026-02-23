@@ -1,5 +1,5 @@
 <div align="center">
-⭐ MAKE SURE TO STAR FOR MORE UPDATES ⭐ 
+⭐ 200 STARS = FREE WEB BASED VERSION ⭐ 
   
 ❤️❤️ Thanks to all the people that star this repo ❤️❤️
 </div>
